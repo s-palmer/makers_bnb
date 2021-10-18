@@ -5,72 +5,52 @@ Arthur, Doug, Sergei and Max
 
 ```
 As a user,
-
 So that I can log in, 
-
 I want to be able to sign up
 ```
 ```
 As a user,
-
 So that I can make money,
-
 I want to be able to list a new space.
 ```
 ```
 As a user, 
-
 So that I can manage my listings,
-
 I want to be able to login
 ```
 ```
 As a user,
-
 So I can rent all available properties,
-
 I want to be able to list multiple spaces
 ```
 ```
 As a user,
-
 So that I can provide information on my space,
-
 I want to be able to give them a name, description and price.
 ```
 ```
 As a user, 
-
 So that people can book my space,
-
 I want to display available dates.
 ```
 ```
 As a signed-up user,
-
 So that I can book a stay
-
 I want to be able to hire a space for one night
 ```
 ```
 As a user,
-
 So that people can stay in my space,
-
 I want to be able to approve booking requests
 ```
 ```
 As a space,
-
 If I'm already booked,
-
 Users should not be able to book me.
 ```
 ```
 As a space,
-
 If a booking request has not be accepted
-
 I am still available
 ```
 
