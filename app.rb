@@ -19,9 +19,32 @@ class MakersBNB < Sinatra::Base
   set :partial_template_engine, :erb
 
   get '/spaces' do
-    erb :'spaces/spaces'
+    erb :'spaces/all'
   end
 
+  get '/spaces/new' do
+    erb :'spaces/new'
+  end
+
+  post '/new-space' do
+    session[:name] = params['name']
+    session[:description] = params['description']
+    session[:price] = params['price']
+    session[:availablefrom] = params['availablefrom-date']
+    session[:availableto] = params['availableto-date']
+    p params
+
+    redirect 'spaces/new/id'
+  end
+
+  get '/spaces/new/id' do
+    @name = session[:name]
+    @description = session[:description]
+    @price = session[:price]
+    @availablefrom = session[:availablefrom]
+    @availableto = session[:availableto]
+    erb :'spaces/new/id'
+  end
 
   run! if app_file == $PROGRAM_NAME
 end
