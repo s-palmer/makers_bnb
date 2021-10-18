@@ -1,2 +1,1 @@
-CREATE TABLE spaces (id SERIAL PRIMARY KEY, name VARCHAR(40) NOT NULL, description VARCHAR(255) NOT NULL, price MONEY NOT NULL, user_id INTEGER REFERENCES users(id));					
-					
+CREATE TABLE spaces (id SERIAL PRIMARY KEY, name VARCHAR(40) NOT NULL, description VARCHAR(255) NOT NULL, price MONEY NOT NULL, user_id INTEGER REFERENCES users(id));
