@@ -43,8 +43,10 @@ class MakersBNB < Sinatra::Base
     @availableto = session[:availableto]
     erb :'spaces/new/id'
 
+  end
+
   get ('/') do 
-    "Welcome to MakersBnb"
+    erb :index
   end
 
   get ('/login') do 
@@ -60,4 +62,5 @@ class MakersBNB < Sinatra::Base
   end
 
   run! if app_file == $PROGRAM_NAME
+  
 end
