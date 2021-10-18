@@ -13,6 +13,7 @@ gem 'webrick'
 gem 'rufo'
 gem 'sinatra-flash'
 gem 'rubocop'
+gem 'sinatra-partial'
 
 group :test do
   gem 'rspec'
