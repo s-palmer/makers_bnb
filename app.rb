@@ -18,6 +18,9 @@ class MakersBNB < Sinatra::Base
   enable :sessions, :method_override, :partial_underscores
   set :partial_template_engine, :erb
 
+  get '/spaces' do
+    erb :'spaces/spaces'
+  end
 
 
   run! if app_file == $PROGRAM_NAME
