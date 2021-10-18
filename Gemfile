@@ -14,6 +14,7 @@ gem 'rufo'
 gem 'sinatra-flash'
 gem 'rubocop'
 gem 'sinatra-partial'
+gem 'bcrypt'
 
 group :test do
   gem 'rspec'
