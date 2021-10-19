@@ -30,6 +30,7 @@ class MakersBNB < Sinatra::Base
   end
 
   get '/spaces' do
+    @spaces = Space.all
     erb :'spaces/all'
   end
 
