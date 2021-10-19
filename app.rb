@@ -3,18 +3,15 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require 'pg'
-require './lib/user.rb'
-require './database_connection_setup.rb'
+require './lib/user'
+require './database_connection_setup'
 require 'sinatra/flash'
-require './lib/request.rb'
+require './lib/request'
 require 'sinatra/partial'
 require 'pg'
 require './lib/space'
 
-
 class MakersBNB < Sinatra::Base
-  
-  
   configure :development do
     register Sinatra::Reloader
     register Sinatra::Flash
@@ -24,9 +21,8 @@ class MakersBNB < Sinatra::Base
   enable :sessions, :method_override, :partial_underscores
   set :partial_template_engine, :erb
 
-
   before do
-    @user = User.find(session[:user_id])
+    @user = User.find(id: session[:user_id])
   end
 
   get '/spaces' do
@@ -39,10 +35,10 @@ class MakersBNB < Sinatra::Base
   end
 
   post '/new-space' do
-    Space.create(name: params[:name], description: params[:description], price: params[:price], available_from: params[:availablefrom_date], available_to: params[:availableto_date], user_id: @user.id)
+    Space.create(name: params[:name], description: params[:description], price: params[:price],
+                 available_from: params[:availablefrom_date], available_to: params[:availableto_date], user_id: @user.id)
     redirect '/spaces'
   end
-  
 
   post '/sessions' do
     @user = User.authenticate(email_address: params[:email_address], password: params[:password])
@@ -55,12 +51,12 @@ class MakersBNB < Sinatra::Base
   end
 
   get '/session_error' do
-    "Please check your email or password."
+    'Please check your email or password.'
   end
 
-   post '/users' do
-    user = User.create(name: params[:name], email_address: params[:email_address], 
-password: params[:password])
+  post '/users' do
+    user = User.create(name: params[:name], email_address: params[:email_address],
+                       password: params[:password])
     session[:user_id] = user.id
     redirect '/'
   end
@@ -74,13 +70,11 @@ password: params[:password])
     redirect '/'
   end
 
+  get '/requests' do
+    # @my_requests = Request.find_my_requests(id: @user.id)
 
-  get ('/requests') do
-    @user = User.find(session[:user_id])
-    @my_requests = Request.find_my_requests(id: @user.id)
     erb :requests
   end
 
   run! if app_file == $PROGRAM_NAME
-
 end

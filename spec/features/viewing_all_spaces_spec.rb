@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # feature 'Viewing Spaces' do
 #   scenario 'User should be able to view all available spaces' do
 #     visit '/spaces'

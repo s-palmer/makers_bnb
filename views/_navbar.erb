@@ -8,9 +8,12 @@
      <div class="nav navbar-right">
        <div class="collapse navbar-collapse" id="navbarSupportedContent">
          <% if @user %>
-        <a class="m-2 btn btn-sm btn-outline-light" href="/spaces" role="button">All Spaces</a>
-        <a class="m-2 btn btn-sm btn-outline-light" id="new_space_button" href="/spaces/new" role="button">New Space</a>
-         <form action="/sessions/destroy" method="post">
+
+        <a class="m-2 btn btn-sm btn-outline-light" href="/spaces">All Spaces</a>
+         <a class="m-2 btn btn-sm btn-outline-light" href="/spaces/new">New
+             Space</a>
+       
+         <form action="/sessions/destroy" method="post"></button>
            <input class="m-2 btn btn-sm btn-outline-light" type="submit" style="font-family: 'Raleway', sans-serif;"
              id="Sign Out" value="Sign Out" />
          </form>

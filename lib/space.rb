@@ -1,5 +1,6 @@
-class Space
+# frozen_string_literal: true
 
+class Space
   attr_reader :id, :name, :description, :price, :user_id, :available_from, :available_to
 
   def initialize(id:, name:, description:, price:, available_from:, available_to:, user_id:)
@@ -19,7 +20,7 @@ class Space
         VALUES ($1, $2, $3, $4, $5, $6)
         RETURNING id, name, description, price, available_from, available_to, user_id;",
       [name, description, price, available_from, available_to, user_id]
-      )
+    )
     Space.new(
       id: result[0]['id'],
       name: result[0]['name'],
@@ -28,11 +29,11 @@ class Space
       available_to: result[0]['available_from'],
       available_from: result[0]['available_to'],
       user_id: result[0]['user_id']
-      )
+    )
   end
 
   def self.all
-    spaces = DatabaseConnection.query("SELECT * FROM spaces;",[])
+    spaces = DatabaseConnection.query('SELECT * FROM spaces;', [])
     spaces.map do |space|
       Space.new(
         id: space['id'],
@@ -41,9 +42,8 @@ class Space
         price: space['price'],
         available_from: space['available_from'],
         available_to: space['available_to'],
-        user_id: 1
+        user_id: space['user_id']
       )
     end
   end
-
 end

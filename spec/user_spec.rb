@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
 require 'user'
 require 'database_helpers'
 
 describe User do
-
   describe '.create' do
     it 'creates a new user' do
       user = User.create(name: 'Test Name', email_address: 'test@example.com', password: 'password123')
@@ -20,7 +21,7 @@ describe User do
       User.create(name: 'Test Name', email_address: 'test@example.com', password: 'password123')
     end
   end
-  
+
   describe '.authenticate' do
     it 'returns a user given a correct username and password, if one exists' do
       user = User.create(name: 'Test Name', email_address: 'test@example.com', password: 'password123')
@@ -28,7 +29,7 @@ describe User do
 
       expect(authenticated_user.id).to eq user.id
     end
-    
+
     it 'returns nil given an incorrect email address' do
       user = User.create(email_address: 'test@example.com', name: 'test guy', password: 'password123')
 
@@ -37,23 +38,23 @@ describe User do
 
     it 'returns nil given an incorrect password' do
       user = User.create(name: 'Test Name', email_address: 'test@example.com', password: 'password123')
-      
+
       expect(User.authenticate(email_address: 'test@example.com', password: 'wrongpassword')).to be_nil
     end
   end
 
   describe '.find' do
-  it 'finds a user by ID' do
-    user = User.create(name: 'Test Name', email_address: 'test@example.com', password: 'password123')
-    result = User.find(user.id)
+    it 'finds a user by ID' do
+      user = User.create(name: 'Test Name', email_address: 'test@example.com', password: 'password123')
+      result = User.find(id: user.id)
 
-    expect(result.id).to eq user.id
-    expect(result.email_address).to eq user.email_address
-    expect(result.name).to eq user.name
-  end
-  
-  it 'returns nil if there is no ID given' do
-    expect(User.find(nil)).to eq nil
-  end
+      expect(result.id).to eq user.id
+      expect(result.email_address).to eq user.email_address
+      expect(result.name).to eq user.name
+    end
+
+    it 'returns nil if there is no ID given' do
+      expect(User.find(id: nil)).to eq nil
+    end
   end
 end

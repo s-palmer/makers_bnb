@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'pg'
 
 def log_in_to_site
