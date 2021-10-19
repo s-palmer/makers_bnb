@@ -6,8 +6,8 @@ require 'pg'
 require './lib/user.rb'
 require './database_connection_setup.rb'
 require 'sinatra/flash'
-
-
+require 'sinatra/partial'
+require 'pg'
 
 class MakersBNB < Sinatra::Base
 
@@ -26,13 +26,21 @@ class MakersBNB < Sinatra::Base
   end
 
   post '/new-space' do
+    name = params['name']
+    description = params['description']
+    price = params['price']
+    availablefrom = params['availablefrom-date']
+    availableto = params['availableto-date']
     session[:name] = params['name']
     session[:description] = params['description']
     session[:price] = params['price']
     session[:availablefrom] = params['availablefrom-date']
     session[:availableto] = params['availableto-date']
-    p params
-
+    connection = PG.connect(dbname: 'makers_bnb_development')
+    connection.exec(
+      "INSERT INTO spaces(
+        name, description, price, available_from, available_to, user_id)
+        VALUES('#{name}', '#{description}', '#{price}', '#{availablefrom}', '#{availableto}', '1');")
     redirect 'spaces/new/id'
   end
 
