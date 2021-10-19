@@ -14,7 +14,7 @@
   <%= partial :navbar %>
   <%= partial :sign_up %>
   <%= partial :sign_in%>
-  <main>  
+  <main class="d-flex justify-content-center">
     <%= yield %>
   </main>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -32,7 +32,7 @@
 
     myModal.addEventListener('shown.bs.modal', function () {
       myInput.focus()
-    })
+    });
   </script>
 </body>
 
