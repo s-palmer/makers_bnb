@@ -61,7 +61,7 @@ describe Space do
       expect(spaces.first.id).to eq space.id
       expect(spaces.first.name).to eq 'TestSpace'
       expect(spaces.first.description).to eq 'A tranquil test space in test land.'
-      expect(spaces.first.price).to eq '$100.00'
+      expect(spaces.first.price).to eq '100'
     end
   end
 end
