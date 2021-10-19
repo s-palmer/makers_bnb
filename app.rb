@@ -6,6 +6,7 @@ require 'pg'
 require './lib/user.rb'
 require './database_connection_setup.rb'
 require 'sinatra/flash'
+require './lib/request.rb'
 
 
 
@@ -31,7 +32,6 @@ class MakersBNB < Sinatra::Base
     session[:price] = params['price']
     session[:availablefrom] = params['availablefrom-date']
     session[:availableto] = params['availableto-date']
-    p params
 
     redirect 'spaces/new/id'
   end
@@ -74,7 +74,9 @@ class MakersBNB < Sinatra::Base
   end
 
   get ('/requests') do
-
+    @user = User.find(session[:user_id])
+    @my_requests = Request.find_my_requests(id: @user.id)
+    erb :requests
   end
 
   run! if app_file == $PROGRAM_NAME
