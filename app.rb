@@ -8,19 +8,43 @@ require './database_connection_setup.rb'
 require 'sinatra/flash'
 
 
+
 class MakersBNB < Sinatra::Base
-  enable :sessions
+
+
+  enable :sessions, :method_override, :partial_underscores
+  set :partial_template_engine, :erb
+  
   register Sinatra::Flash
 
-  configure :development do
-    register Sinatra::Reloader
+  get '/spaces' do
+    erb :'spaces/all'
   end
 
-  get('/') do
-    @user = User.find(session[:user_id])
-    erb :index
+  get '/spaces/new' do
+    erb :'spaces/new'
   end
 
+  post '/new-space' do
+    session[:name] = params['name']
+    session[:description] = params['description']
+    session[:price] = params['price']
+    session[:availablefrom] = params['availablefrom-date']
+    session[:availableto] = params['availableto-date']
+    p params
+
+    redirect 'spaces/new/id'
+  end
+
+  get '/spaces/new/id' do
+    @name = session[:name]
+    @description = session[:description]
+    @price = session[:price]
+    @availablefrom = session[:availablefrom]
+    @availableto = session[:availableto]
+    erb :'spaces/new/id'
+  end
+  
   get ('/sessions/new') do
     erb :"sessions/new"
   end
@@ -36,10 +60,22 @@ class MakersBNB < Sinatra::Base
     end
   end
 
+  get('/') do
+    @user = User.find(session[:user_id])
+    erb :index
+  end
 
+  get ('/login') do 
 
+  end
 
+  post ('/login') do 
 
+  end
+
+  get ('/requests') do
+
+  end
 
   run! if app_file == $PROGRAM_NAME
 
