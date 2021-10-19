@@ -71,8 +71,8 @@ class MakersBNB < Sinatra::Base
   end
 
   get '/requests' do
-    # @my_requests = Request.find_my_requests(id: @user.id)
-
+    @my_requests = Booking.find_my_requests(id: @user.id)
+    @incoming_requests = Booking.all_incoming(id: @user.id)
     erb :requests
   end
 

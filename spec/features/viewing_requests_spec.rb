@@ -6,6 +6,8 @@ require 'auth_helper'
 feature 'Viewing Requests' do
   scenario 'viewing the requests user has made' do
     user = User.create(name: 'Test Name', email_address: 'test@example.com', password: 'password123')
+    host = User.create(name: 'Test Name Other', email_address: 'test2@example.com', password: 'password123')
+
      space = Space.create(
         name: 'TestSpace',
         description: 'A tranquil test space in test land.',
@@ -14,7 +16,7 @@ feature 'Viewing Requests' do
         available_to: '2021-10-31 00:00:00',
         user_id: user.id
       )
-    DatabaseConnection.query("INSERT INTO bookings (start_date, end_date, booking_confirmed, user_id, space_id) VALUES ('2021-11-18 15:44:02.776337', '2021-12-18 15:44:02.776337', false, #{user.id}, #{space.id} );")
+      DatabaseConnection.query("INSERT INTO bookings (start_date, end_date, booking_confirmed, user_id, space_id, host_id) VALUES ('2021-11-18 15:44:02.776337', '2021-12-18 15:44:02.776337', false, #{user.id}, #{space.id}, #{host.id} );")
 
     visit '/'
     click_button 'Sign In'
@@ -24,11 +26,13 @@ feature 'Viewing Requests' do
 
     click_link 'Requests'
     expect(page).to have_content("Requests I've made:")
+    expect(page).to have_content('I have requested a booking at: 1')
   end
 
   
   scenario 'viewing the requests user has received' do
-    user = User.create(name: 'Test Name', email_address: 'test@example.com', password: 'password123')
+    host = User.create(name: 'Test Name', email_address: 'test@example.com', password: 'password123')
+    user = User.create(name: 'Bob', email_address: 'test2@example.com', password: 'password123')
     space = Space.create(
           name: 'TestSpace',
           description: 'A tranquil test space in test land.',
@@ -38,7 +42,7 @@ feature 'Viewing Requests' do
           user_id: user.id
         )
 
-      DatabaseConnection.query("INSERT INTO bookings (start_date, end_date, booking_confirmed, user_id, space_id) VALUES ('2021-11-18 15:44:02.776337', '2021-12-18 15:44:02.776337', false, #{user.id}, #{space.id} );")
+    DatabaseConnection.query("INSERT INTO bookings (start_date, end_date, booking_confirmed, user_id, space_id, host_id) VALUES ('2021-11-18 15:44:02.776337', '2021-12-18 15:44:02.776337', false, #{user.id}, #{space.id}, #{host.id} );")
 
     visit '/'
     click_button 'Sign In'
@@ -48,6 +52,7 @@ feature 'Viewing Requests' do
 
     click_link 'Requests'
     expect(page).to have_content("Requests I've received:")
+    expect(page).to have_content('Bob has requested to book space 1 from 2021-11-18 15:44:02.776337 to 2021-12-18 15:44:02.776337')
   end
 end
 
