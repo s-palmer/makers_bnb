@@ -36,7 +36,7 @@ class MakersBNB < Sinatra::Base
   end
 
   post '/new-space' do
-    Space.create(name: params['name'], description: params['description'], price: params['price'], available_from: params['availablefrom-date'], available_to: params['availableto-date'])
+    Space.create(name: params[:name], description: params[:description], price: params[:price], available_from: params[:availablefrom_date], available_to: params[:availableto_date], user_id: @user.id)
     redirect '/spaces'
   end
 
@@ -51,15 +51,17 @@ class MakersBNB < Sinatra::Base
   
 
   post '/sessions' do
-    
     @user = User.authenticate(email_address: params[:email_address], password: params[:password])
     if @user
       session[:user_id] = @user.id
       redirect('/')
     else
-      
-      redirect('/')
+      redirect('/session_error')
     end
+  end
+
+  get '/session_error' do
+    "Please check your email or password."
   end
 
    post '/users' do

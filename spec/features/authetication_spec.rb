@@ -18,6 +18,7 @@ feature 'authentication' do
     expect(page).not_to have_content 'Welcome, test guy'
     expect(page).to have_content 'Please check your email or password.'
   end
+  
   scenario 'a user sees an error if they get their password wrong' do
     User.create(name: 'Test Name', email_address: 'test@example.com', password: 'password123')
 

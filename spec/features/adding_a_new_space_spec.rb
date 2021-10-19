@@ -1,8 +1,9 @@
+require 'auth_helper'
+
 feature 'Adding a new Space' do
-  scenario 'User can add a new space' do
-    visit '/spaces/new'
-    # connection = PG.connect(dbname: 'makers_bnb_test')
-    # connection.exec_params("INSERT INTO users")
+p  scenario 'User can add a new space' do
+    log_in_to_site
+    click_button('new_space_button')
     fill_in('listing-name', with: 'Hertfordshire Hideaway')
     fill_in('listing-description', with: 'It is pretty hidden')
     fill_in('listing-price', with: '75')

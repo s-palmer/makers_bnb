@@ -1,6 +1,6 @@
 class Space
 
-  attr_reader :id, :name, :description, :price, :user_id
+  attr_reader :id, :name, :description, :price, :user_id, :available_from, :available_to
 
   def initialize(id:, name:, description:, price:, available_from:, available_to:, user_id:)
     @id = id
@@ -8,17 +8,17 @@ class Space
     @description = description
     @price = price
     @available_from = available_from
-    @available_to = available_to
     @user_id = user_id
+    @available_to = available_to
   end
 
-  def self.create(name:, description:, price:, available_from:, available_to:)
+  def self.create(name:, description:, price:, available_from:, available_to:, user_id:)
     result = DatabaseConnection.query(
       "INSERT INTO spaces(
         name, description, price, available_from, available_to, user_id)
         VALUES ($1, $2, $3, $4, $5, $6)
         RETURNING id, name, description, price, available_from, available_to, user_id;",
-      [name, description, price, available_from, available_to, 1]
+      [name, description, price, available_from, available_to, user_id]
       )
     Space.new(
       id: result[0]['id'],

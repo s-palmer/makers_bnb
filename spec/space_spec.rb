@@ -10,9 +10,9 @@ describe Space do
       name: 'TestSpace',
       description: 'A tranquil test space in test land.',
       price: 100,
-      available_from: '2021-10-19 00:00:00',
-      available_to: '2021-10-31 00:00:00')
-      # user_id: user.id)
+      available_from: DateTime.parse('2021-10-19 00:00:00'),
+      available_to: DateTime.parse('2021-10-31 00:00:00'),
+      user_id: 1)
       persisted_data = persisted_data(table: :spaces, id: space.id)
 
       expect(space).to be_a Space
