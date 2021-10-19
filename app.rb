@@ -10,8 +10,12 @@ require './lib/booking'
 require 'sinatra/partial'
 require 'pg'
 require './lib/space'
+require './helpers/spaces_helper'
 
 class MakersBNB < Sinatra::Base
+
+  include SpaceHelper
+
   configure :development do
     register Sinatra::Reloader
     register Sinatra::Flash

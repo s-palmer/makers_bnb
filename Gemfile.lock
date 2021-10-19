@@ -48,6 +48,7 @@ GEM
     erubi (1.10.0)
     execjs (2.8.1)
     ffi (1.15.4)
+    httpclient (2.8.3)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
     loofah (2.12.0)
@@ -185,6 +186,7 @@ DEPENDENCIES
   bcrypt
   bootstrap
   capybara
+  httpclient
   pg
   rake
   rspec
