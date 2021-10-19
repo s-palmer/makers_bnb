@@ -1,5 +1,6 @@
 <% @spaces.each do |space| %>
 <ul class="space" id="space-<%= space.id %>">
+    <h3>Space: <%=space.id%></h3>
     <li>Name: <%= space.name %></li>
     <li>Description: <%= space.description %></li>
     <li>Price: £<%= space.price %></li>
