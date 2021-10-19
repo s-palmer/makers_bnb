@@ -6,9 +6,11 @@ require 'pg'
 require './lib/user.rb'
 require './database_connection_setup.rb'
 require 'sinatra/flash'
+require './lib/request.rb'
 require 'sinatra/partial'
 require 'pg'
 require './lib/space'
+
 
 class MakersBNB < Sinatra::Base
   
@@ -28,6 +30,7 @@ class MakersBNB < Sinatra::Base
   end
 
   get '/spaces' do
+    @spaces = Space.all
     erb :'spaces/all'
   end
 
@@ -82,7 +85,9 @@ password: params[:password])
 
 
   get ('/requests') do
-
+    @user = User.find(session[:user_id])
+    @my_requests = Request.find_my_requests(id: @user.id)
+    erb :requests
   end
 
   run! if app_file == $PROGRAM_NAME
