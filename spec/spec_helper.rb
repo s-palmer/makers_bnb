@@ -9,6 +9,10 @@ require 'simplecov'
 require 'simplecov-console'
 
 Capybara.app = MakersBNB
+Capybara.default_driver = :selenium
+Capybara.server = :webrick
+
+
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
