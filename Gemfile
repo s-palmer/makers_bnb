@@ -15,6 +15,7 @@ gem 'sinatra-flash'
 gem 'rubocop'
 gem 'sinatra-partial'
 gem 'bcrypt'
+gem 'bootstrap'
 
 group :test do
   gem 'rspec'
