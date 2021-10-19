@@ -1,20 +1,21 @@
+# frozen_string_literal: true
 
 require 'sinatra/base'
 require 'sinatra/reloader'
+require 'pg'
+require './lib/user.rb'
+require './database_connection_setup.rb'
 require 'sinatra/flash'
 require 'sinatra/partial'
-require_relative 'database_connection_setup'
+require 'pg'
 
 class MakersBNB < Sinatra::Base
 
-  configure :development do
-    register Sinatra::Reloader
-    register Sinatra::Flash
-    register Sinatra::Partial
-  end
 
   enable :sessions, :method_override, :partial_underscores
   set :partial_template_engine, :erb
+  
+  register Sinatra::Flash
 
   get '/spaces' do
     erb :'spaces/all'
@@ -25,13 +26,21 @@ class MakersBNB < Sinatra::Base
   end
 
   post '/new-space' do
+    name = params['name']
+    description = params['description']
+    price = params['price']
+    availablefrom = params['availablefrom-date']
+    availableto = params['availableto-date']
     session[:name] = params['name']
     session[:description] = params['description']
     session[:price] = params['price']
     session[:availablefrom] = params['availablefrom-date']
     session[:availableto] = params['availableto-date']
-    p params
-
+    connection = PG.connect(dbname: 'makers_bnb_development')
+    connection.exec(
+      "INSERT INTO spaces(
+        name, description, price, available_from, available_to, user_id)
+        VALUES('#{name}', '#{description}', '#{price}', '#{availablefrom}', '#{availableto}', '1');")
     redirect 'spaces/new/id'
   end
 
@@ -42,10 +51,25 @@ class MakersBNB < Sinatra::Base
     @availablefrom = session[:availablefrom]
     @availableto = session[:availableto]
     erb :'spaces/new/id'
-
+  end
+  
+  get ('/sessions/new') do
+    erb :"sessions/new"
   end
 
-  get ('/') do 
+  post ('/sessions') do
+    user = User.authenticate(email_address: params[:email], password: params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect('/')
+    else
+      flash[:notice] = 'Please check your username or password.'
+      redirect('/sessions/new')
+    end
+  end
+
+  get('/') do
+    @user = User.find(session[:user_id])
     erb :index
   end
 
@@ -62,5 +86,5 @@ class MakersBNB < Sinatra::Base
   end
 
   run! if app_file == $PROGRAM_NAME
-  
+
 end

@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/sergei/Documents/Makers/Challenges/Week-5/makers_bnb/spec/features/adding_a_new_space_spec.rb": {
+      "/Users/douglaskerins/Projects/makers_bnb/spec/features/authetication_spec.rb": {
         "lines": [
           1,
           1,
@@ -12,30 +12,63 @@
           1,
           1,
           1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
           1,
           1,
           1,
           1,
+          null,
           1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
           1,
           1,
           null,
           null
         ]
       },
-      "/Users/sergei/Documents/Makers/Challenges/Week-5/makers_bnb/spec/features/viewing_all_spaces_spec.rb": {
+      "/Users/douglaskerins/Projects/makers_bnb/spec/user_spec.rb": {
         "lines": [
           1,
           1,
+          null,
           1,
           1,
           1,
           1,
           null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
           null
         ]
       }
     },
-    "timestamp": 1634569609
+    "timestamp": 1634570729
   }
 }

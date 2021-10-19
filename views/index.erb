@@ -13,3 +13,8 @@
   <input type="password" name="password">
   <input type="submit" name="submit" value="Submit details">
 </form>
+<h1>"Welcome to MakersBnb"</h1>
+
+<% if @user %>
+  <h1>Welcome, <%= @user.name %></h1>
+<% end %>
