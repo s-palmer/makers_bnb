@@ -1,6 +1,16 @@
 {
   "RSpec": {
     "coverage": {
+      "/Users/sergei/Documents/Makers/Challenges/Week-5/makers_bnb/spec/booking_spec.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          1,
+          null
+        ]
+      },
       "/Users/sergei/Documents/Makers/Challenges/Week-5/makers_bnb/spec/features/adding_a_new_space_spec.rb": {
         "lines": [
           null,
@@ -10,13 +20,6 @@
           1,
           1,
           1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
           1,
           1,
           1,
@@ -24,16 +27,11 @@
           1,
           1,
           1,
-          1,
-          1,
-          1,
-          null,
-          null,
           null,
           null
         ]
       },
-      "/Users/douglaskerins/Projects/makers_bnb/spec/auth_helper.rb": {
+      "/Users/sergei/Documents/Makers/Challenges/Week-5/makers_bnb/spec/auth_helper.rb": {
         "lines": [
           null,
           null,
@@ -193,16 +191,6 @@
           null,
           null,
           null,
-          null
-        ]
-      },
-      "/Users/sergei/Documents/Makers/Challenges/Week-5/makers_bnb/spec/request_spec.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          null,
-          1,
           null
         ]
       },
@@ -380,6 +368,6 @@
         ]
       }
     },
-    "timestamp": 1634650401
+    "timestamp": 1634655461
   }
 }
