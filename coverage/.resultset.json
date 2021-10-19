@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/douglaskerins/Projects/makers_bnb/spec/features/authetication_spec.rb": {
+      "/Users/arthurfincham/dev/my_makers/makers_bnb/spec/features/adding_a_new_space_spec.rb": {
         "lines": [
           1,
           1,
@@ -12,8 +12,26 @@
           1,
           1,
           1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          null,
+          null
+        ]
+      },
+      "/Users/arthurfincham/dev/my_makers/makers_bnb/spec/features/authetication_spec.rb": {
+        "lines": [
+          1,
           null,
           1,
+          1,
+          1,
+          1,
+          null,
           null,
           1,
           1,
@@ -22,13 +40,15 @@
           1,
           1,
           1,
-          null,
-          1,
           1,
           null,
           1,
           1,
           null,
+          1,
+          1,
+          null,
+          1,
           1,
           1,
           1,
@@ -40,28 +60,166 @@
           null
         ]
       },
-      "/Users/douglaskerins/Projects/makers_bnb/spec/user_spec.rb": {
+      "/Users/arthurfincham/dev/my_makers/makers_bnb/spec/auth_helper.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/arthurfincham/dev/my_makers/makers_bnb/spec/features/homepage_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/arthurfincham/dev/my_makers/makers_bnb/spec/features/viewing_all_spaces_spec.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/arthurfincham/dev/my_makers/makers_bnb/spec/space_spec.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/arthurfincham/dev/my_makers/makers_bnb/lib/space.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/arthurfincham/dev/my_makers/makers_bnb/spec/database_helpers.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          2,
+          2,
+          null
+        ]
+      },
+      "/Users/arthurfincham/dev/my_makers/makers_bnb/spec/user_spec.rb": {
         "lines": [
           1,
           1,
           null,
           1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
           1,
           1,
           1,
           null,
           1,
           null,
-          1,
           null,
           1,
           1,
           null,
           1,
           null,
+          null,
           1,
           1,
           null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
           1,
           null,
           null,
@@ -69,6 +227,6 @@
         ]
       }
     },
-    "timestamp": 1634570729
+    "timestamp": 1634637332
   }
 }

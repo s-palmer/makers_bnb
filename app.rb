@@ -22,6 +22,11 @@ class MakersBNB < Sinatra::Base
   enable :sessions, :method_override, :partial_underscores
   set :partial_template_engine, :erb
 
+
+  before do
+    @user = User.find(session[:user_id])
+  end
+
   get '/spaces' do
     erb :'spaces/all'
   end
@@ -51,14 +56,15 @@ class MakersBNB < Sinatra::Base
   end
   
 
-  post ('/sessions') do
-    user = User.authenticate(email_address: params[:email_address], password: params[:password])
-    if user
-      session[:user_id] = user.id
+  post '/sessions' do
+    
+    @user = User.authenticate(email_address: params[:email_address], password: params[:password])
+    if @user
+      session[:user_id] = @user.id
       redirect('/')
     else
-      flash[:notice] = 'Please check your email or password.'
-      redirect('/sessions/new')
+      
+      redirect('/')
     end
   end
 
@@ -70,7 +76,6 @@ password: params[:password])
   end
 
   get('/') do
-    @user = User.find(session[:user_id])
     erb :index
   end
 
