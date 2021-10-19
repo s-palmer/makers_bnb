@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/arthurfincham/dev/my_makers/makers_bnb/spec/features/adding_a_new_space_spec.rb": {
+      "/Users/sergei/Documents/Makers/Challenges/Week-5/makers_bnb/spec/features/adding_a_new_space_spec.rb": {
         "lines": [
           null,
           null,
@@ -33,7 +33,7 @@
           null
         ]
       },
-      "/Users/arthurfincham/dev/my_makers/makers_bnb/spec/auth_helper.rb": {
+      "/Users/douglaskerins/Projects/makers_bnb/spec/auth_helper.rb": {
         "lines": [
           null,
           null,
@@ -50,7 +50,7 @@
           null
         ]
       },
-      "/Users/arthurfincham/dev/my_makers/makers_bnb/spec/features/authetication_spec.rb": {
+      "/Users/sergei/Documents/Makers/Challenges/Week-5/makers_bnb/spec/features/authetication_spec.rb": {
         "lines": [
           null,
           null,
@@ -96,7 +96,7 @@
           null
         ]
       },
-      "/Users/arthurfincham/dev/my_makers/makers_bnb/spec/features/viewing_all_spaces_spec.rb": {
+      "/Users/sergei/Documents/Makers/Challenges/Week-5/makers_bnb/spec/features/viewing_all_spaces_spec.rb": {
         "lines": [
           null,
           null,
@@ -109,7 +109,7 @@
           null
         ]
       },
-      "/Users/arthurfincham/dev/my_makers/makers_bnb/spec/features/viewing_requests_spec.rb": {
+      "/Users/sergei/Documents/Makers/Challenges/Week-5/makers_bnb/spec/features/viewing_requests_spec.rb": {
         "lines": [
           null,
           null,
@@ -196,7 +196,7 @@
           null
         ]
       },
-      "/Users/arthurfincham/dev/my_makers/makers_bnb/spec/request_spec.rb": {
+      "/Users/sergei/Documents/Makers/Challenges/Week-5/makers_bnb/spec/request_spec.rb": {
         "lines": [
           null,
           null,
@@ -206,7 +206,7 @@
           null
         ]
       },
-      "/Users/arthurfincham/dev/my_makers/makers_bnb/spec/space_spec.rb": {
+      "/Users/sergei/Documents/Makers/Challenges/Week-5/makers_bnb/spec/space_spec.rb": {
         "lines": [
           null,
           null,
@@ -277,7 +277,7 @@
           null
         ]
       },
-      "/Users/arthurfincham/dev/my_makers/makers_bnb/spec/database_helpers.rb": {
+      "/Users/sergei/Documents/Makers/Challenges/Week-5/makers_bnb/spec/database_helpers.rb": {
         "lines": [
           null,
           null,
@@ -315,7 +315,7 @@
           null
         ]
       },
-      "/Users/arthurfincham/dev/my_makers/makers_bnb/spec/user_spec.rb": {
+      "/Users/sergei/Documents/Makers/Challenges/Week-5/makers_bnb/spec/user_spec.rb": {
         "lines": [
           null,
           null,
@@ -380,6 +380,6 @@
         ]
       }
     },
-    "timestamp": 1634654122
+    "timestamp": 1634650401
   }
 }

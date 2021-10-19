@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Request
+class Booking
   attr_reader :id, :start_date, :end_date, :booking_confirmed, :user_id, :space_id
 
   def initialize(id:, start_date:, end_date:, booking_confirmed:, user_id:, space_id:)
