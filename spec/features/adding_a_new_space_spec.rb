@@ -10,7 +10,7 @@ feature 'Adding a new Space' do
   expect(page).to have_content('Hertfordshire Hideaway')
   expect(page).to have_content('It is pretty hidden')
   expect(page).to have_content('£75')
-  expect(page).to have_content('Available From: Thu 21 October 2021')
-  expect(page).to have_content('Available To: Sat 30 October 2021')
+  expect(page).to have_text('From: Thu 21 Oct 2021', normalize_ws: true)
+  expect(page).to have_text('To: Sat 30 Oct 2021', normalize_ws: true)
   end
 end
