@@ -1,17 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/douglaskerins/Projects/makers_bnb/spec/booking_spec.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          null,
-          1,
-          null
-        ]
-      },
-      "/Users/douglaskerins/Projects/makers_bnb/spec/features/adding_a_new_space_spec.rb": {
+      "/Users/sergei/Documents/Makers/Challenges/Week-5/makers_bnb/spec/features/adding_a_new_space_spec.rb": {
         "lines": [
           null,
           null,
@@ -43,7 +33,11 @@
           null
         ]
       },
+<<<<<<< HEAD
+      "/Users/sergei/Documents/Makers/Challenges/Week-5/makers_bnb/spec/auth_helper.rb": {
+=======
       "/Users/douglaskerins/Projects/makers_bnb/spec/auth_helper.rb": {
+>>>>>>> main
         "lines": [
           null,
           null,
@@ -60,7 +54,7 @@
           null
         ]
       },
-      "/Users/douglaskerins/Projects/makers_bnb/spec/features/authetication_spec.rb": {
+      "/Users/sergei/Documents/Makers/Challenges/Week-5/makers_bnb/spec/features/authetication_spec.rb": {
         "lines": [
           null,
           null,
@@ -106,7 +100,7 @@
           null
         ]
       },
-      "/Users/douglaskerins/Projects/makers_bnb/spec/features/viewing_all_spaces_spec.rb": {
+      "/Users/sergei/Documents/Makers/Challenges/Week-5/makers_bnb/spec/features/viewing_all_spaces_spec.rb": {
         "lines": [
           null,
           null,
@@ -119,7 +113,7 @@
           null
         ]
       },
-      "/Users/douglaskerins/Projects/makers_bnb/spec/features/viewing_requests_spec.rb": {
+      "/Users/sergei/Documents/Makers/Challenges/Week-5/makers_bnb/spec/features/viewing_requests_spec.rb": {
         "lines": [
           null,
           null,
@@ -206,7 +200,17 @@
           null
         ]
       },
-      "/Users/douglaskerins/Projects/makers_bnb/spec/space_spec.rb": {
+      "/Users/sergei/Documents/Makers/Challenges/Week-5/makers_bnb/spec/request_spec.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          1,
+          null
+        ]
+      },
+      "/Users/sergei/Documents/Makers/Challenges/Week-5/makers_bnb/spec/space_spec.rb": {
         "lines": [
           null,
           null,
@@ -277,7 +281,7 @@
           null
         ]
       },
-      "/Users/douglaskerins/Projects/makers_bnb/spec/database_helpers.rb": {
+      "/Users/sergei/Documents/Makers/Challenges/Week-5/makers_bnb/spec/database_helpers.rb": {
         "lines": [
           null,
           null,
@@ -315,7 +319,7 @@
           null
         ]
       },
-      "/Users/douglaskerins/Projects/makers_bnb/spec/user_spec.rb": {
+      "/Users/sergei/Documents/Makers/Challenges/Week-5/makers_bnb/spec/user_spec.rb": {
         "lines": [
           null,
           null,
@@ -380,6 +384,6 @@
         ]
       }
     },
-    "timestamp": 1634651833
+    "timestamp": 1634650401
   }
 }

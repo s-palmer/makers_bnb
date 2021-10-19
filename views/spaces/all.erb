@@ -1,12 +1,10 @@
-<%# <div class="space">Space 1</div>
-<div class="space">Space 2</div>
-<div class="space">Space 3</div> %>
-
 <% @spaces.each do |space| %>
 <ul class="space" id="space-<%= space.id %>">
     <li>Name: <%= space.name %></li>
     <li>Description: <%= space.description %></li>
     <li>Price: <%= space.price %></li>
+    <li>Available From: <%= Date.parse(space.available_from).strftime('%a %-d %B %Y') %></li>
+    <li>Available To: <%= Date.parse(space.available_to).strftime('%a %-d %B %Y') %></li>
   </li>
 </ul>
 <% end %>
