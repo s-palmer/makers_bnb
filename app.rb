@@ -7,8 +7,8 @@ require './lib/user.rb'
 require './database_connection_setup.rb'
 require 'sinatra/flash'
 require 'sinatra/partial'
-
-
+require 'pg'
+require './lib/space'
 
 class MakersBNB < Sinatra::Base
   
@@ -36,22 +36,16 @@ class MakersBNB < Sinatra::Base
   end
 
   post '/new-space' do
-    session[:name] = params['name']
-    session[:description] = params['description']
-    session[:price] = params['price']
-    session[:availablefrom] = params['availablefrom-date']
-    session[:availableto] = params['availableto-date']
-    p params
-
-    redirect 'spaces/new/id'
+    Space.create(name: params['name'], description: params['description'], price: params['price'], available_from: params['availablefrom-date'], available_to: params['availableto-date'])
+    redirect '/spaces'
   end
 
   get '/spaces/new/id' do
-    @name = session[:name]
-    @description = session[:description]
-    @price = session[:price]
-    @availablefrom = session[:availablefrom]
-    @availableto = session[:availableto]
+    # @name = session[:name]
+    # @description = session[:description]
+    # @price = session[:price]
+    # @availablefrom = session[:availablefrom]
+    # @availableto = session[:availableto]
     erb :'spaces/new/id'
   end
   
