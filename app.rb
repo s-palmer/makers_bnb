@@ -8,6 +8,7 @@ require './database_connection_setup.rb'
 require 'sinatra/flash'
 require 'sinatra/partial'
 require 'pg'
+require './lib/space'
 
 class MakersBNB < Sinatra::Base
 
@@ -26,30 +27,16 @@ class MakersBNB < Sinatra::Base
   end
 
   post '/new-space' do
-    name = params['name']
-    description = params['description']
-    price = params['price']
-    availablefrom = params['availablefrom-date']
-    availableto = params['availableto-date']
-    session[:name] = params['name']
-    session[:description] = params['description']
-    session[:price] = params['price']
-    session[:availablefrom] = params['availablefrom-date']
-    session[:availableto] = params['availableto-date']
-    connection = PG.connect(dbname: 'makers_bnb_development')
-    connection.exec(
-      "INSERT INTO spaces(
-        name, description, price, available_from, available_to, user_id)
-        VALUES('#{name}', '#{description}', '#{price}', '#{availablefrom}', '#{availableto}', '1');")
-    redirect 'spaces/new/id'
+    Space.create(name: params['name'], description: params['description'], price: params['price'], available_from: params['availablefrom-date'], available_to: params['availableto-date'])
+    redirect '/spaces'
   end
 
   get '/spaces/new/id' do
-    @name = session[:name]
-    @description = session[:description]
-    @price = session[:price]
-    @availablefrom = session[:availablefrom]
-    @availableto = session[:availableto]
+    # @name = session[:name]
+    # @description = session[:description]
+    # @price = session[:price]
+    # @availablefrom = session[:availablefrom]
+    # @availableto = session[:availableto]
     erb :'spaces/new/id'
   end
   
