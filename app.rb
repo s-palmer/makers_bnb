@@ -7,16 +7,27 @@ require './lib/user.rb'
 require './database_connection_setup.rb'
 require 'sinatra/flash'
 require './lib/request.rb'
-
+require 'sinatra/partial'
+require 'pg'
+require './lib/space'
 
 
 class MakersBNB < Sinatra::Base
-
+  
+  
+  configure :development do
+    register Sinatra::Reloader
+    register Sinatra::Flash
+    register Sinatra::Partial
+  end
 
   enable :sessions, :method_override, :partial_underscores
   set :partial_template_engine, :erb
-  
-  register Sinatra::Flash
+
+
+  before do
+    @user = User.find(session[:user_id])
+  end
 
   get '/spaces' do
     erb :'spaces/all'
@@ -27,51 +38,48 @@ class MakersBNB < Sinatra::Base
   end
 
   post '/new-space' do
-    session[:name] = params['name']
-    session[:description] = params['description']
-    session[:price] = params['price']
-    session[:availablefrom] = params['availablefrom-date']
-    session[:availableto] = params['availableto-date']
-
-    redirect 'spaces/new/id'
+    Space.create(name: params['name'], description: params['description'], price: params['price'], available_from: params['availablefrom-date'], available_to: params['availableto-date'])
+    redirect '/spaces'
   end
 
   get '/spaces/new/id' do
-    @name = session[:name]
-    @description = session[:description]
-    @price = session[:price]
-    @availablefrom = session[:availablefrom]
-    @availableto = session[:availableto]
+    # @name = session[:name]
+    # @description = session[:description]
+    # @price = session[:price]
+    # @availablefrom = session[:availablefrom]
+    # @availableto = session[:availableto]
     erb :'spaces/new/id'
   end
   
-  get ('/sessions/new') do
-    erb :"sessions/new"
-  end
 
-  post ('/sessions') do
-    user = User.authenticate(email_address: params[:email], password: params[:password])
-    if user
-      session[:user_id] = user.id
+  post '/sessions' do
+    
+    @user = User.authenticate(email_address: params[:email_address], password: params[:password])
+    if @user
+      session[:user_id] = @user.id
       redirect('/')
     else
-      flash[:notice] = 'Please check your username or password.'
-      redirect('/sessions/new')
+      
+      redirect('/')
     end
   end
 
+   post '/users' do
+    user = User.create(name: params[:name], email_address: params[:email_address], 
+password: params[:password])
+    session[:user_id] = user.id
+    redirect '/'
+  end
+
   get('/') do
-    @user = User.find(session[:user_id])
     erb :index
   end
 
-  get ('/login') do 
-
+  post '/sessions/destroy' do
+    session.clear
+    redirect '/'
   end
 
-  post ('/login') do 
-
-  end
 
   get ('/requests') do
     @user = User.find(session[:user_id])
