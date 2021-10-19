@@ -9,6 +9,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
+require_relative './web_helpers'
 
 Capybara.app = MakersBNB
 Capybara.default_driver = :selenium
