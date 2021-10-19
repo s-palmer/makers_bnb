@@ -6,16 +6,21 @@ require 'pg'
 require './lib/user.rb'
 require './database_connection_setup.rb'
 require 'sinatra/flash'
+require 'sinatra/partial'
 
 
 
 class MakersBNB < Sinatra::Base
-
+  
+  
+  configure :development do
+    register Sinatra::Reloader
+    register Sinatra::Flash
+    register Sinatra::Partial
+  end
 
   enable :sessions, :method_override, :partial_underscores
   set :partial_template_engine, :erb
-  
-  register Sinatra::Flash
 
   get '/spaces' do
     erb :'spaces/all'
@@ -45,19 +50,23 @@ class MakersBNB < Sinatra::Base
     erb :'spaces/new/id'
   end
   
-  get ('/sessions/new') do
-    erb :"sessions/new"
-  end
 
   post ('/sessions') do
-    user = User.authenticate(email_address: params[:email], password: params[:password])
+    user = User.authenticate(email_address: params[:email_address], password: params[:password])
     if user
       session[:user_id] = user.id
       redirect('/')
     else
-      flash[:notice] = 'Please check your username or password.'
+      flash[:notice] = 'Please check your email or password.'
       redirect('/sessions/new')
     end
+  end
+
+   post '/users' do
+    user = User.create(name: params[:name], email_address: params[:email_address], 
+password: params[:password])
+    session[:user_id] = user.id
+    redirect '/'
   end
 
   get('/') do
@@ -65,13 +74,11 @@ class MakersBNB < Sinatra::Base
     erb :index
   end
 
-  get ('/login') do 
-
+  post '/sessions/destroy' do
+    session.clear
+    redirect '/'
   end
 
-  post ('/login') do 
-
-  end
 
   get ('/requests') do
 
