@@ -1,13 +1,53 @@
-<form action="/new-space" method="post">
-  <label for="listing-name">Enter a name for your Space:</label>
-<input type="text" name="name" id="listing-name">
-  <label for="listing-description">Enter a description for your Space:</label>
-<input type="text" name="description" id="listing-description">
-  <label for="listing-price">Enter a price (per night) for your Space:</label>
-<input type="number" name="price" id="listing-price">
-  <label for="listing-fromdate">Available From:</label>
-<input type="date" name="availablefrom_date" id="listing-fromdate">
-  <label for="listing-todate">Available To:</label>
-<input type="date" name="availableto_date" id="listing-todate">
-<input type="submit" name="submit" value="List my Space" id="button-list-my-space">
+<form action="/new-space" method="post" class="w-50 m-5">
+
+  <div class="d-flex align-items-center">
+    <div class="col">
+      <div class="mb-3">
+        <label for="listing-name" class="form-label">Name</label>
+        <input type="text" name="name" class="form-control" id="listing-name" aria-describedby="spacename">
+        <div id="spacename" class="form-text">Please enter a name for your space.</div>
+      </div>
+    </div>
+    <div class="m-3"></div>
+    <div class="col">
+      <div class="mb-3">
+        <div>
+          <label for="listing-price" class="form-label">Price</label>
+        </div>
+        <div class="input-group">
+          <span class="input-group-text">£</span>
+          <input type="text" name="price" class="form-control" id="listing-price" aria-label="Amount (to the nearest dollar)">
+        </div>
+        <div id="spacename" class="form-text">Please enter the nightly price.</div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="d-flex align-items-center">
+    <div class="col">
+      <div class="mb-3">
+        <label class=" form-label" for="listing-fromdate">Available From</label>
+        <input type="date" class="form-control" name="availablefrom_date" id="listing-fromdate">
+      </div>
+    </div>
+    <div class="m-3"></div>
+    <div class="col">
+      <div class="mb-3">
+        <label class=" form-label" for="listing-todate">Available To</label>
+        <input type="date" class="form-control" name="availableto_date" id="listing-todate">
+      </div>
+    </div>
+  </div>
+
+
+  <div class="mb-3">
+    <label for="listing-description" class=" form-label">Description</label>
+    <textarea type="text" class="form-control" rows="5" id="listing-description"
+      aria-describedby="spacedescription" name="description" ></textarea>
+    <div id="spacedescription" class="form-text ">Please enter a description for your space.</div>
+  </div>
+
+  <button type="submit" class="btn btn-primary" name="submit" value="List my Space"
+    id="button-list-my-space">Submit</button>
 </form>
