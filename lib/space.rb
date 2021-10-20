@@ -49,6 +49,22 @@ class Space
     end
   end
 
+  def self.filter(date:)
+    filter_date = date
+    spaces = DatabaseConnection.query("SELECT * FROM spaces WHERE available_from <= '#{filter_date}' AND available_to >= '#{filter_date}';", [])
+    spaces.map do |space|
+      Space.new(
+        id: space['id'],
+        name: space['name'],
+        description: space['description'],
+        price: space['price'],
+        available_from: space['available_from'],
+        available_to: space['available_to'],
+        user_id: space['user_id']
+      )
+    end
+  end
+
 
   def self.find(id:)
     result = DatabaseConnection.query('SELECT * FROM spaces WHERE id = ($1)', [id])
