@@ -39,7 +39,7 @@ class MakersBNB < Sinatra::Base
   end
 
   get '/spaces/:id/view' do
-    @space = Space.find(id: params[:id])
+    @space = Space.find(id: params[:id]).first
     erb :'view_space'
   end
 

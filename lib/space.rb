@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Space
+  
   attr_reader :id, :name, :description, :price, :user_id, :available_from, :available_to
 
   def initialize(id:, name:, description:, price:, available_from:, available_to:, user_id:)

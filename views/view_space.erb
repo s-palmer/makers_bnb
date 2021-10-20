@@ -1,1 +1,39 @@
-<h1>invidiual view goes here</h1>
+<div class="d-flex flex-column justify-content-center">
+  <div class="d-flex align-items-center text-center">
+    <h1 class="w-100 m-3"><%= @space.name %></h1>
+  </div>
+  <div class="row g-0 w-100 d-flex justify-content-center">
+    <div class="col-md-6">
+      <%= partial :image_carousel %>
+    </div>
+    <div class="col-md-3 d-flex flex-column card p-1 mx-3 justify-content-center">
+    <div class="d-flex align-items-center text-center mx-2 mt-5">
+      <p><%= @space.description %></p>
+    </div>
+      <div class="w-100 d-flex  justify-content-center">
+        <div class="input-group w-50 m-5">
+          <span class="input-group-text">£</span>
+          <span type="text" name="price" class="form-control" id="listing-price"
+            aria-label="Amount (to the nearest dollar)"><%= @space.price %><small class="fst-italic text-muted"> per
+              night</small></span>
+        </div>
+      </div>
+      <div class="d-flex align-items-center flex-column mb-5 w-100">
+        <span class="input-group-text w-75 ">Request a booking</span>
+        <%# BOOKING REQUEST FORM GOES HERE !! %>
+        <form action="" method="">
+        <div class="input-group w-75">
+          <span class="input-group-text w-25">From</span>
+          <input type="date" class="form-control" name="bookingfrom_date" id="booking-fromdate">
+        </div>
+        <div class="input-group w-75">
+          <span class="input-group-text w-25">To</span>
+          <input type="date" class="form-control" name="bookingto_date" id="booking-todate">
+        </div>
+        <button type="submit" class="mt-3 btn btn-sm btn-outline-danger" name="submit" value="submit_request"
+          id="button-request-booking">Request</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
