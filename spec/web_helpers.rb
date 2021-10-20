@@ -15,3 +15,4 @@ def new_space_creation
   fill_in('listing-todate', with: '2021-10-30')
   click_button('List my Space')
 end
+
