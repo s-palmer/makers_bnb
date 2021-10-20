@@ -1,0 +1,1 @@
+CREATE TABLE dates(date TIMESTAMP, available BOOLEAN, space_id INT REFERENCES spaces(id);)
