@@ -31,7 +31,13 @@ class MakersBNB < Sinatra::Base
   end
 
   get '/spaces' do
-    @spaces = Space.all
+    booking_date = params['booking_date']
+    if booking_date == nil || booking_date == ""
+      @spaces = Space.all
+    else
+      @spaces = Space.filter(date: booking_date)
+    end
+    p params
     erb :'spaces/all'
   end
 
@@ -107,6 +113,11 @@ class MakersBNB < Sinatra::Base
 
   get '/permission_error' do
     'Please login to view this page.'
+  end
+
+  post '/date-filter' do
+    
+    
   end
 
   run! if app_file == $PROGRAM_NAME
