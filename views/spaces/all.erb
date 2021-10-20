@@ -20,6 +20,11 @@
           <p><%= Date.parse(space.available_to).strftime('%a %-d %b %Y') %></p>
         </div>
       </div>
+      <form action="/spaces/<%= space.id %>/view" method="get">
+        <button class="btn btn-sm m-2 btn-link bg-white" type="submit" value="<%= space.id %>">
+          <h6>View</h6>
+        </button>
+      </form>
       <div class="card-footer text-muted d-flex justify-content-center">
         £<%= space.price %> per night
       </div>
@@ -49,6 +54,11 @@
           <p><%= Date.parse(space.available_to).strftime('%a %-d %b %Y') %></p>
         </div>
       </div>
+      <form action="/spaces/<%= space.id %>/view" method="get">
+        <button class="btn btn-sm m-2 btn-link bg-white" type="submit" value="<%= space.id %>">
+          <h6>View</h6>
+        </button>
+      </form>
       <div class="card-footer text-muted d-flex justify-content-center">
         £<%= space.price %> per night
       </div>
@@ -58,3 +68,4 @@
   </div>
 </div>
 </div>
+
