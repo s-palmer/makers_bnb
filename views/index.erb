@@ -2,5 +2,8 @@
   <h1>Welcome, <%= @user.name %></h1>
 <a href="/requests">Requests</a>
 <% else %>
-  <h2> Please check your email or password.</h2>
+  <%# <h2> Please check your email or password.</h2> %>
 <% end %>
+
+<a href="/spaces" class="btn btn-primary">View All Spaces</a>
+

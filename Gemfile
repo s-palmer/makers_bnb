@@ -18,6 +18,7 @@ gem 'sinatra-contrib'
 gem 'sinatra-flash'
 gem 'sinatra-partial'
 gem 'webrick'
+gem 'httpclient'
 
 group :test do
   gem 'rspec'
