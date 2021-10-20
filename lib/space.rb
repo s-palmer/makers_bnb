@@ -62,6 +62,7 @@ class Space
           user_id: space['user_id']
         )
       end
+  end
 
   def self.mine(id:)
     spaces = DatabaseConnection.query('SELECT * FROM spaces WHERE user_id = $1;', [id])
