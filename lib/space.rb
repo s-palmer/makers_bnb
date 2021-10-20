@@ -31,11 +31,6 @@ class Space
       available_from: result[0]['available_to'],
       user_id: result[0]['user_id']
     )
-    # BookingCalendar.create(
-    #   space_id: result[0]['id'],
-    #   start_date: available_from,
-    #   end_date: available_to
-    # )
   end
 
   def self.all
