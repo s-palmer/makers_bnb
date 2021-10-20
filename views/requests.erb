@@ -1,7 +1,7 @@
 <div>
   <h1>Requests I've made:</h1>
   <% @my_requests.each do |request| %>
-    <a href="/spaces/<%= request.id %>">
+    <a href="/requests/<%= request.id %>">
       <ul>
         <li>
           Space: <%= request.space_id %>
@@ -18,7 +18,7 @@
   <h1>Requests I've received:</h1>
   <% @incoming_requests.each do |request| %>
     <% renter = User.find(id: request.user_id)  %>
-    <a href="/spaces/<%= request.id %>">
+    <a href="/requests/<%= request.id %>">
       <ul>
         <li>
           Space: <%= request.space_id %>
