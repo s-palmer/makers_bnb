@@ -1,38 +1,56 @@
-<div>
-  <h1>Requests I've made:</h1>
-  <% @my_requests.each do |request| %>
-    <a href="/spaces/<%= request.id %>">
-      <ul>
-        <li>
-          Space: <%= request.space_id %>
-        </li>
-        <li>
-          Dates: <%= Date.parse(request.start_date).strftime('%a %-d %b %Y') %> - <%= Date.parse(request.end_date).strftime('%a %-d %b %Y') %>
-        </li>
-      </ul>
-    </a>
-  <% end %>
-</div>
 
-<div>
-  <h1>Requests I've received:</h1>
-  <% @incoming_requests.each do |request| %>
-    <% renter = User.find(id: request.user_id)  %>
-    <a href="/spaces/<%= request.id %>">
-      <ul>
-        <li>
-          Space: <%= request.space_id %>
-        </li>
-        <li>
-          Renter: <%= renter.name %>
-        </li>
-        <li>
-          Dates: <%= Date.parse(request.start_date).strftime('%a %-d %b %Y') %> to <%= Date.parse(request.end_date).strftime('%a %-d %b %Y') %>
-        </li>
-        <li>
-          Approved?: <%= request.booking_confirmed == "t" ? "yes" : "no" %>
-        </li>
-      </ul>
-    </a> 
-  <% end %>
+<div class="row">
+  <div class="col">
+    <h1>Requests I've made:</h1>
+    <div class="d-flex flex-column">
+      <% @my_requests.each do |request| %>
+      <a href="/requests/<%= request.id %>">
+        <div class="card m-5" style="width: 25rem;">
+          <img src="<%= generate_image %>" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Space: <%= request.space_id %></h5>
+            <p class="card-text"><%= %>
+            </p>
+          </div>
+          <div class="d-flex flex-row space justify-content-evenly">
+            <div>
+              <p class="mb-0 text-secondary">Rental Date:</p>
+              <p><%= Date.parse(request.start_date).strftime('%a %-d %b %Y') %></p>
+            </div>
+          </div>
+          <div class="card-footer text-muted d-flex justify-content-center">
+            <%= request.booking_confirmed == "t" ? "CONFIRMED" : "UNCOMFIRMED"  %>
+          </div>
+        </div>
+      </a>
+      <% end %>
+    </div>
+  </div>
+  <div class="col">
+    <h1>Requests I've received:</h1>
+    <div class="d-flex flex-column">
+      <% @incoming_requests.each do |request|  %>
+      <% renter = User.find(id: request.user_id)  %>
+      <a href="/requests/<%= request.id %>">
+        <div class="card m-5" style="width: 25rem;">
+          <img src="<%= generate_image %>" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Space: <%= request.space_id %></h5>
+            <p class="card-text">Renter: <%= renter.name  %>
+            </p>
+          </div>
+          <div class="d-flex flex-row space justify-content-evenly">
+            <div>
+              <p class="mb-0 text-secondary">Rental Date:</p>
+              <p><%= Date.parse(request.start_date).strftime('%a %-d %b %Y') %></p>
+            </div>
+          </div>
+          <div class="card-footer text-muted d-flex justify-content-center">
+            <%= request.booking_confirmed == "t" ? "CONFIRMED" : "UNCOMFIRMED"  %>
+          </div>
+        </div>
+    </a>
+      <% end %>
+    </div>
+  </div>
 </div>

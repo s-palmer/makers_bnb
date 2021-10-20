@@ -48,6 +48,7 @@ class Space
     end
   end
 
+
   def self.find(id:)
     result = DatabaseConnection.query('SELECT * FROM spaces WHERE id = ($1)', [id])
     result.map do |space|
@@ -61,5 +62,19 @@ class Space
           user_id: space['user_id']
         )
       end
+
+  def self.mine(id:)
+    spaces = DatabaseConnection.query('SELECT * FROM spaces WHERE user_id = $1;', [id])
+    spaces.map do |space|
+      Space.new(
+        id: space['id'],
+        name: space['name'],
+        description: space['description'],
+        price: space['price'],
+        available_from: space['available_from'],
+        available_to: space['available_to'],
+        user_id: space['user_id']
+      )
+    end
   end
 end
