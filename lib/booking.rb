@@ -13,11 +13,11 @@ class Booking
     @host_id = host_id
   end
 
-  def self.create(id:, start_date:, end_date:, booking_confirmed:, user_id:, space_id:, host_id:)
+  def self.create(start_date:, end_date:, booking_confirmed:, user_id:, space_id:, host_id:)
     result = DatabaseConnection.query(
       "INSERT INTO bookings(
         start_date, end_date, booking_confirmed, user_id, space_id, host_id)
-        VALUES ($1, $2, $3, $4, $5, $6, $7)
+        VALUES ($1, $2, $3, $4, $5, $6)
         RETURNING id, start_date, end_date, booking_confirmed, user_id, space_id, host_id;",
       [start_date, end_date, booking_confirmed, user_id, space_id, host_id]
     )
