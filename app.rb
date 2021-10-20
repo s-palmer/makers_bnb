@@ -45,8 +45,12 @@ class MakersBNB < Sinatra::Base
   end
 
   get '/spaces/my-spaces' do
-    @spaces = Space.mine(id: @user.id)
-    erb :'spaces/all'
+    if @user
+      @spaces = Space.mine(id: @user.id)
+      erb :'spaces/all'
+    else
+      redirect('/permission_error')
+    end
   end
 
   post '/sessions' do
@@ -80,9 +84,17 @@ class MakersBNB < Sinatra::Base
   end
 
   get '/requests' do
-    @my_requests = Booking.find_my_requests(id: @user.id)
-    @incoming_requests = Booking.all_incoming(id: @user.id)
-    erb :requests
+    if @user 
+      @my_requests = Booking.find_my_requests(id: @user.id)
+      @incoming_requests = Booking.all_incoming(id: @user.id)
+      erb :requests
+    else
+      redirect('/permission_error')
+    end
+  end
+
+  get '/permission_error' do
+    'Please login to view this page.'
   end
 
   run! if app_file == $PROGRAM_NAME
