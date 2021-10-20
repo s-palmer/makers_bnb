@@ -55,6 +55,10 @@ class Booking
     DatabaseConnection.query('UPDATE bookings SET booking_confirmed = true WHERE id = $1', [id])
   end
 
+  def self.change_availability(id:, date:)
+    DatabaseConnection.query('UPDATE dates SET available = false WHERE space_id = $1 AND date = $2', [id, date])
+  end
+
   def self.deny(id:)
     DatabaseConnection.query('DELETE FROM bookings WHERE id = $1', [id])
   end
