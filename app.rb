@@ -44,6 +44,11 @@ class MakersBNB < Sinatra::Base
     redirect '/spaces'
   end
 
+  get '/spaces/my-spaces' do
+    @spaces = Space.mine(id: @user.id)
+    erb :'spaces/all'
+  end
+
   post '/sessions' do
     @user = User.authenticate(email_address: params[:email_address], password: params[:password])
     if @user
