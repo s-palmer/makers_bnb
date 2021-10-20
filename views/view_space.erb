@@ -7,10 +7,12 @@
     <div class="col-lg-6">
       <h1 class="display-5 fw-bold lh-1 mb-3"><%= @space.name%></h1>
       <p class="lead"><%= @space.description%></p>
-      <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-        <button type="button" class="btn btn-danger btn-sm " data-bs-toggle="modal" data-bs-target="#exampleModal">
-          Launch demo modal
+      <div class="d-flex justify-content-center">
+      <div class="input-group w-25 m-5">
+        <button type="button" id="book_request_button"class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Request to stay
         </button>
+        </div>
         <%= partial :request_form %>
         <div class="input-group w-25 m-5">
           <span class="input-group-text">£</span>
