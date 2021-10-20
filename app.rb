@@ -124,12 +124,14 @@ class MakersBNB < Sinatra::Base
   end
 
   post '/confirm-booking' do
-    Booking.confirm(id: params["confirm"])
+    p params
+    Booking.confirm(id: params["booking_id"])
+    Booking.change_availability(id: params["space_id"], date: params["request_date"])
     redirect('/requests')
   end
 
   post '/deny-booking' do
-    Booking.deny(id: params["deny"])
+    Booking.deny(id: params["booking_id"])
     redirect('/requests')
   end
 

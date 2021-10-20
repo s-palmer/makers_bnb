@@ -103,13 +103,13 @@ feature 'Viewing Requests' do
     click_button('Enter')
 
     visit '/requests'
-    expect(page).to have_content("Confirm Booking Request?")
-    expect(page).to have_content("Deny Booking Request?")
+    expect(page).to have_button("Confirm Booking")
+    expect(page).to have_button("Deny Booking")
+  end
 
   scenario 'If no bookings have been requested, user should see a default message' do 
-    guard_clause_for_no_booking 
+    guard_clause_for_no_booking
     expect(page).to have_text "You have no booking requests."
-
   end
 end
 

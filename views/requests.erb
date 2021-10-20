@@ -35,7 +35,7 @@
       <% renter = User.find(id: request.user_id)  %>
         <div class="card m-5" style="width: 25rem;">
           <div class="card-header text-muted d-flex justify-content-center">
-            <%= request.booking_confirmed == "t" ? "CONFIRMED" : "UNCOMFIRMED"  %>
+            <%= request.booking_confirmed == "t" ? "CONFIRMED" : "UNCONFIRMED"  %>
           </div>
           <img src="<%= generate_image %>" class="card-img-top" alt="...">
           <div class="card-body">
@@ -51,11 +51,13 @@
           </div>
           <div class="card-footer text-muted d-flex justify-content-evenly">
             <form action="/confirm-booking" method="post">
-            <input type="hidden" name="confirm" value="<%= request.id %>" />
+            <input type="hidden" name="booking_id" value="<%= request.id %>" />
+            <input type="hidden" name="space_id" value="<%= request.space_id %>" />
+            <input type="hidden" name="request_date" value="<%= request.start_date %>" />
             <input type="submit" id="confirm" value="Confirm Booking">
             </form>
             <form action="/deny-booking" method="post">
-            <input type="hidden" name="deny" value="<%= request.id %>" />
+            <input type="hidden" name="booking_id" value="<%= request.id %>" />
             <input type="submit" id="deny" value="Deny Booking">
             </form>
           </div>
