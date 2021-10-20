@@ -37,7 +37,6 @@ class MakersBNB < Sinatra::Base
     else
       @spaces = Space.filter(date: booking_date)
     end
-    p params
     erb :'spaces/all'
   end
 
@@ -111,13 +110,27 @@ class MakersBNB < Sinatra::Base
     end
   end
 
+  post '/bookings/new' do
+    booking = Booking.create(start_date: params[:start_date], end_date: params[:end_date], booking_confirmed: false, user_id: session[:user_id], space_id: params[:space_id], host_id: params[:host_id])
+    if booking
+      redirect '/requests'
+    else
+      redirect '/spaces/:id/view' 
+    end
+  end
+
   get '/permission_error' do
     'Please login to view this page.'
   end
 
-  post '/date-filter' do
-    
-    
+  post '/confirm-booking' do
+    Booking.confirm(id: params["confirm"])
+    redirect('/requests')
+  end
+
+  post '/deny-booking' do
+    Booking.deny(id: params["deny"])
+    redirect('/requests')
   end
 
   run! if app_file == $PROGRAM_NAME

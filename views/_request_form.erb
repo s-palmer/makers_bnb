@@ -1,17 +1,35 @@
  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-   <div class="modal-dialog">
+   <div class="modal-dialog modal-dialog-centered">
      <div class="modal-content">
        <div class="modal-header">
-         <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+         <h5 class="modal-title text-muted" id="exampleModalLabel">Request a booking for <span class="text-dark fst-italic"><%= @space.name %>
+             </span></h5>
          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
        </div>
        <div class="modal-body">
-         ...
+         <form action="/bookings/new" method="post">
+
+             <div class="m-5">
+               <div class="mb-3">
+                 <label class=" form-label" for="listing-fromdate">Booking From</label>
+                 <input type="date" class="form-control" name="start_date" id="listing_fromdate">
+               </div>
+             </div>
+             <div class="m-9"></div>
+             <div class="m-5">
+               <div class="mb-3">
+                 <label class=" form-label" for="listing-todate">Booking To</label>
+                 <input type="date" class="form-control" name="end_date" id="listing_todate">
+               </div>
+             </div>
+
+           <input type="hidden" name="space_id" value="<%= @space.id %>">
+           <input type="hidden" name="host_id" value="<%= @space.user_id %>">
        </div>
        <div class="modal-footer">
-         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-         <button type="button" class="btn btn-primary">Save changes</button>
+         <button type="submit" class="btn btn-danger">Submit</button>
        </div>
+       </form>
      </div>
    </div>
  </div>

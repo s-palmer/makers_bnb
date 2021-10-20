@@ -23,4 +23,11 @@ describe Booking do
     end
   end
 
+  # describe ".confirm" do
+  #   it "should change confirmed from false to true" do
+  #     Booking.confirm(id: )
+  #     expect(subject.booking_confirmed).to eq(true)
+  #   end 
+  # end
+
 end
