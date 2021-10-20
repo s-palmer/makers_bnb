@@ -26,7 +26,8 @@ feature 'Viewing Requests' do
 
     click_link 'Requests'
     expect(page).to have_content("Requests I've made:")
-    expect(page).to have_content('I have requested a booking at: 1')
+    expect(page).to have_content('Space: 1')
+    expect(page).to have_content('Thu 18 Nov 2021 - Sat 18 Dec 2021')
   end
 
   
@@ -52,7 +53,9 @@ feature 'Viewing Requests' do
 
     click_link 'Requests'
     expect(page).to have_content("Requests I've received:")
-    expect(page).to have_content('Bob has requested to book space 1 from 2021-11-18 15:44:02.776337 to 2021-12-18 15:44:02.776337')
+    expect(page).to have_content("Space: 1")
+    expect(page).to have_content("Renter: Bob")
+    expect(page).to have_content("Dates: Thu 18 Nov 2021 to Sat 18 Dec 2021")
   end
 end
 

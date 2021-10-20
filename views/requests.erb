@@ -1,15 +1,38 @@
-<h1>Requests I've made:</h1>
-<% @my_requests.each do |request| %>
-  <div>
-    <h3>I have requested a booking at: <%= request.space_id %></h3>
-    <h3>I have requested to stay from <%= Date.parse(request.start_date).strftime('%a %-d %b %Y') %> - <%= Date.parse(request.end_date).strftime('%a %-d %b %Y') %></h3>
-  </div>
-<% end %>
+<div>
+  <h1>Requests I've made:</h1>
+  <% @my_requests.each do |request| %>
+    <a href="/spaces/<%= request.id %>">
+      <ul>
+        <li>
+          Space: <%= request.space_id %>
+        </li>
+        <li>
+          Dates: <%= Date.parse(request.start_date).strftime('%a %-d %b %Y') %> - <%= Date.parse(request.end_date).strftime('%a %-d %b %Y') %>
+        </li>
+      </ul>
+    </a>
+  <% end %>
+</div>
 
-<h1>Requests I've received:</h1>
-<% @incoming_requests.each do |request| %>
-  <% renter = User.find(id: request.user_id)  %>
-  <div>
-    <h3><%= renter.name %> has requested to book space <%= request.space_id %> from <%= Date.parse(request.start_date).strftime('%a %-d %b %Y') %> to <%= Date.parse(request.end_date).strftime('%a %-d %b %Y') %></h3>
-  </div>
-<% end %>
+<div>
+  <h1>Requests I've received:</h1>
+  <% @incoming_requests.each do |request| %>
+    <% renter = User.find(id: request.user_id)  %>
+    <a href="/spaces/<%= request.id %>">
+      <ul>
+        <li>
+          Space: <%= request.space_id %>
+        </li>
+        <li>
+          Renter: <%= renter.name %>
+        </li>
+        <li>
+          Dates: <%= Date.parse(request.start_date).strftime('%a %-d %b %Y') %> to <%= Date.parse(request.end_date).strftime('%a %-d %b %Y') %>
+        </li>
+        <li>
+          Approved?: <%= request.booking_confirmed == "t" ? "yes" : "no" %>
+        </li>
+      </ul>
+    </a> 
+  <% end %>
+</div>
