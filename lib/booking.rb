@@ -50,4 +50,12 @@ class Booking
                   space_id: booking['space_id'], host_id: booking['host_id'])
     end
   end
+
+  def self.confirm(id:)
+    DatabaseConnection.query('UPDATE bookings SET booking_confirmed = true WHERE id = $1', [id])
+  end
+
+  def self.deny(id:)
+    DatabaseConnection.query('DELETE FROM bookings WHERE id = $1', [id])
+  end
 end

@@ -109,5 +109,15 @@ class MakersBNB < Sinatra::Base
     'Please login to view this page.'
   end
 
+  post '/confirm-booking' do
+    Booking.confirm(id: params["confirm"])
+    redirect('/requests')
+  end
+
+  post '/deny-booking' do
+    Booking.deny(id: params["deny"])
+    redirect('/requests')
+  end
+
   run! if app_file == $PROGRAM_NAME
 end
