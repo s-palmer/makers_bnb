@@ -3,9 +3,9 @@ require_relative 'booking_calendar'
 
 class Space
   
-  attr_reader :id, :name, :description, :price, :user_id, :available_from, :available_to
+  attr_reader :id, :name, :description, :price, :user_id, :available_from, :available_to, :url
 
-  def initialize(id:, name:, description:, price:, available_from:, available_to:, user_id:)
+  def initialize(id:, name:, description:, price:, available_from:, available_to:, user_id:, url:)
     @id = id
     @name = name
     @description = description
@@ -13,15 +13,16 @@ class Space
     @available_from = available_from
     @user_id = user_id
     @available_to = available_to
+    @url = url
   end
 
-  def self.create(name:, description:, price:, available_from:, available_to:, user_id:)
+  def self.create(name:, description:, price:, available_from:, available_to:, user_id:, url:)
     result = DatabaseConnection.query(
       "INSERT INTO spaces(
-        name, description, price, available_from, available_to, user_id)
-        VALUES ($1, $2, $3, $4, $5, $6)
-        RETURNING id, name, description, price, available_from, available_to, user_id;",
-      [name, description, price, available_from, available_to, user_id]
+        name, description, price, available_from, available_to, user_id, url)
+        VALUES ($1, $2, $3, $4, $5, $6, $7)
+        RETURNING id, name, description, price, available_from, available_to, user_id, url;",
+      [name, description, price, available_from, available_to, user_id, url]
     )
     Space.new(
       id: result[0]['id'],
@@ -30,7 +31,8 @@ class Space
       price: result[0]['price'],
       available_to: result[0]['available_from'],
       available_from: result[0]['available_to'],
-      user_id: result[0]['user_id']
+      user_id: result[0]['user_id'],
+      url: result[0]['url']
     )
   end
 
@@ -44,7 +46,8 @@ class Space
         price: space['price'],
         available_from: space['available_from'],
         available_to: space['available_to'],
-        user_id: space['user_id']
+        user_id: space['user_id'],
+        url: space['url']
       )
     end
   end
@@ -60,7 +63,8 @@ class Space
         price: space['price'],
         available_from: space['available_from'],
         available_to: space['available_to'],
-        user_id: space['user_id']
+        user_id: space['user_id'],
+        url: space['url']
       )
     end
   end
@@ -76,7 +80,8 @@ class Space
           price: space['price'],
           available_from: space['available_from'],
           available_to: space['available_to'],
-          user_id: space['user_id']
+          user_id: space['user_id'],
+          url: space['url']
         )
       end
   end
@@ -91,7 +96,8 @@ class Space
         price: space['price'],
         available_from: space['available_from'],
         available_to: space['available_to'],
-        user_id: space['user_id']
+        user_id: space['user_id'],
+        url: space['url']
       )
     end
   end
