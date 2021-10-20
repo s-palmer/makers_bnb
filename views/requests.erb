@@ -3,8 +3,11 @@
   <div class="col">
     <h1>Requests I've made:</h1>
     <div class="d-flex flex-column">
-      <% @my_requests.each do |request| %>
-      <a href="/requests/<%= request.id %>">
+      <% if @my_requests.empty? %>
+        "You have no booking requests."
+      <% else %>
+        <% @my_requests.each do |request| %>
+        <a href="/requests/<%= request.id %>">
         <div class="card m-5" style="width: 25rem;">
           <img src="<%= generate_image %>" class="card-img-top" alt="...">
           <div class="card-body">
@@ -22,6 +25,7 @@
             <%= request.booking_confirmed == "t" ? "CONFIRMED" : "UNCOMFIRMED"  %>
           </div>
         </div>
+      <% end %>
       </a>
       <% end %>
     </div>
