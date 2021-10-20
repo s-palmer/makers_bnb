@@ -64,4 +64,22 @@ describe Space do
       expect(spaces.first.price).to eq '100'
     end
   end
+
+  describe '.find' do
+    it 'finds a user by ID' do
+      user = User.create(name: 'Test Name', email_address: 'test@example.com', password: 'password123')
+      space = Space.create(
+        name: 'TestSpace',
+        description: 'A tranquil test space in test land.',
+        price: 100,
+        available_from: '2021-10-19 00:00:00',
+        available_to: '2021-10-31 00:00:00',
+        user_id: user.id
+      )
+      
+      result = Space.find(id: space.id).first
+
+      expect(result.id).to eq space.id
+    end
+  end
 end
