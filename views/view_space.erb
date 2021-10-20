@@ -8,10 +8,10 @@
       <h1 class="display-5 fw-bold lh-1 mb-3"><%= @space.name%></h1>
       <p class="lead"><%= @space.description%></p>
       <div class="d-flex justify-content-center">
-      <div class="input-group w-25 m-5">
-        <button type="button" id="book_request_button"class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          Request to stay
-        </button>
+        <div class="input-group w-25 m-5">
+          <button type="button" id="book_request_button"class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Request to stay
+          </button>
         </div>
         <%= partial :request_form %>
         <div class="input-group w-25 m-5">
@@ -22,5 +22,18 @@
         </div>
       </div>
     </div>
+  </div>
+  <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+    <ul class="list-group list-group-horizontal">
+      <% @availability.reverse.each do |date| %>
+        <li class="list-group-item" id="list-group-item">
+          <form action="/send-request" method="post">
+            <button type="submit">
+              <%= date %>
+            </button>
+          </form>
+        </li>
+      <% end %>
+    </ul>
   </div>
 </div>

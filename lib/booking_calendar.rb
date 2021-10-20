@@ -21,4 +21,16 @@ class BookingCalendar
       '1 day') AS t(i);", []
     )
   end
+
+  def self.availability(space_id:)
+    # space_id = spaceid
+    result = DatabaseConnection.query(
+      "SELECT date FROM dates
+      WHERE space_id = '#{space_id}'
+      AND available = TRUE;", []
+    )
+    result.map do |request|
+      request['date']
+    end
+  end
 end
