@@ -31,7 +31,12 @@ class MakersBNB < Sinatra::Base
   end
 
   get '/spaces' do
-    @spaces = Space.all
+    booking_date = params['booking_date']
+    if booking_date == nil || booking_date == ""
+      @spaces = Space.all
+    else
+      @spaces = Space.filter(date: booking_date)
+    end
     erb :'spaces/all'
   end
 
