@@ -15,7 +15,7 @@
       <% @spaces.each_with_index do |space, i| %>
       <% if i.even? %>
       <div class="card m-5 " style="width: 25rem;">
-        <img src="<%= generate_image %>" class="card-img-top hover_image" alt="...">
+        <img src="<%= space.url %>" class="card-img-top hover_image" alt="...">
         <div class="card-body">
           <h5 class="card-title"><%= space.name %></h5>
           <p class="card-text"><%= space.description %>
@@ -49,7 +49,7 @@
       <% @spaces.each_with_index do |space, i| %>
       <% if i.odd? %>
       <div class="card m-5" style="width: 25rem;">
-        <img src="<%= generate_image %>" class="card-img-top hover_image" alt="...">
+        <img src="<%= space.url %>" class="card-img-top hover_image" alt="...">
         <div class="card-body">
           <h5 class="card-title"><%= space.name %></h5>
           <p class="card-text"><%= space.description %>
