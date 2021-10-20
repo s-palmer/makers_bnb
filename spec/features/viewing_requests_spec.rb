@@ -27,7 +27,7 @@ feature 'Viewing Requests' do
     click_link 'Requests'
     expect(page).to have_content("Requests I've made:")
     expect(page).to have_content('Space: 1')
-    expect(page).to have_content('Thu 18 Nov 2021 - Sat 18 Dec 2021')
+    expect(page).to have_content('Thu 18 Nov 2021')
   end
 
   
@@ -56,7 +56,7 @@ feature 'Viewing Requests' do
     expect(page).to have_content("Requests I've received:")
     expect(page).to have_content("Space: 1")
     expect(page).to have_content("Renter: Bob")
-    expect(page).to have_content("Dates: Thu 18 Nov 2021 to Sat 18 Dec 2021")
+    expect(page).to have_content("Thu 18 Nov 2021")
   end
 
   scenario 'viewing alert if logged out user tries to view requests' do
@@ -74,9 +74,9 @@ feature 'Viewing Requests' do
     DatabaseConnection.query("INSERT INTO bookings (start_date, end_date, booking_confirmed, user_id, space_id, host_id) VALUES 
       ('2021-11-18 15:44:02.776337', '2021-12-18 15:44:02.776337', false, #{user.id}, #{space.id}, #{host.id} );")
 
-    click_link 'Requests'
-    expect(page).to not_have_content("Requests I've received:")
-    expect(page).to have_content("Please login to view your requests.")
+    visit '/requests'
+    expect(page).not_to have_content("Requests I've received:")
+    expect(page).to have_content("Please login to view this page.")
   end
 end
 
