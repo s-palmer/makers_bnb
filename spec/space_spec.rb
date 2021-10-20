@@ -98,23 +98,19 @@ describe Space do
         price: 100,
         available_from: '2021-10-19 00:00:00',
         available_to: '2021-10-31 00:00:00',
-
-        user_id: user.id
+        user_id: host.id
       )
       
       result = Space.find(id: space.id).first
-
       expect(result.id).to eq space.id
 
-        user_id: 2
-      )
       Space.create(
         name: 'TestSpace2',
         description: 'A tranquil test space in test land.',
         price: 100,
         available_from: '2021-10-19 00:00:00',
         available_to: '2021-10-31 00:00:00',
-        user_id: 1
+        user_id: host.id
       )
       Space.create(
         name: 'TestSpace3',
@@ -122,7 +118,7 @@ describe Space do
         price: 100,
         available_from: '2021-10-19 00:00:00',
         available_to: '2021-10-31 00:00:00',
-        user_id: 2
+        user_id: user.id
       )
       spaces = Space.mine(id: host.id)
 

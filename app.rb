@@ -86,7 +86,7 @@ class MakersBNB < Sinatra::Base
     redirect '/'
   end
 
-  get('/') do
+  get '/' do
     erb :index
   end
 
@@ -107,10 +107,6 @@ class MakersBNB < Sinatra::Base
 
   get '/permission_error' do
     'Please login to view this page.'
-  end
-
-  get '/calendar' do
-  
   end
 
   run! if app_file == $PROGRAM_NAME
