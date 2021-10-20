@@ -4,7 +4,6 @@
     <h1>Requests I've made:</h1>
     <div class="d-flex flex-column">
       <% @my_requests.each do |request| %>
-      <a href="/requests/<%= request.id %>">
         <div class="card m-5" style="width: 25rem;">
           <div class="card-header text-muted d-flex justify-content-center">
             <%= request.booking_confirmed == "t" ? "CONFIRMED" : "UNCOMFIRMED"  %>
@@ -22,7 +21,6 @@
             </div>
           </div>
         </div>
-      </a>
       <% end %>
     </div>
   </div>
@@ -31,11 +29,10 @@
     <div class="d-flex flex-column">
       <% @incoming_requests.each do |request|  %>
       <% renter = User.find(id: request.user_id)  %>
-      <a href="/requests/<%= request.id %>">
         <div class="card m-5" style="width: 25rem;">
           <div class="card-header text-muted d-flex justify-content-center">
             <%= request.booking_confirmed == "t" ? "CONFIRMED" : "UNCOMFIRMED"  %>
-          </div>  
+          </div>
           <img src="<%= generate_image %>" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">Space: <%= request.space_id %></h5>
@@ -49,11 +46,16 @@
             </div>
           </div>
           <div class="card-footer text-muted d-flex justify-content-evenly">
-            <button>Confirm Booking</button>
-            <button>Deny Booking</button>
+            <form action="/confirm-booking" method="post">
+            <input type="hidden" name="confirm" value="<%= request.id %>" />
+            <input type="submit" id="confirm" value="Confirm Booking">
+            </form>
+            <form action="/deny-booking" method="post">
+            <input type="hidden" name="deny" value="<%= request.id %>" />
+            <input type="submit" id="deny" value="Deny Booking">
+            </form>
           </div>
         </div>
-    </a>
       <% end %>
     </div>
   </div>
