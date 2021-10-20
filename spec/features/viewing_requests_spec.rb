@@ -2,6 +2,7 @@
 
 require 'date'
 require 'auth_helper'
+require 'web_helpers'
 
 feature 'Viewing Requests' do
   scenario 'viewing the requests user has made' do
@@ -77,6 +78,11 @@ feature 'Viewing Requests' do
     visit '/requests'
     expect(page).not_to have_content("Requests I've received:")
     expect(page).to have_content("Please login to view this page.")
+  end
+
+  scenario 'If no bookings have been requested, user should see a default message' do 
+    guard_clause_for_no_booking 
+    expect(page).to have_text "You have no booking requests."
   end
 end
 
