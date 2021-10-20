@@ -2,6 +2,7 @@
 
 require 'date'
 require 'auth_helper'
+require 'web_helpers'
 
 feature 'Viewing Requests' do
   scenario 'viewing the requests user has made' do
@@ -79,6 +80,7 @@ feature 'Viewing Requests' do
     expect(page).to have_content("Please login to view this page.")
   end
 
+
   scenario 'view confirm and deny buttons for incoming requests' do
     host = User.create(name: 'Test Name', email_address: 'test@example.com', password: 'password123')
     user = User.create(name: 'Bob', email_address: 'test2@example.com', password: 'password123')
@@ -103,6 +105,11 @@ feature 'Viewing Requests' do
     visit '/requests'
     expect(page).to have_content("Confirm Booking Request?")
     expect(page).to have_content("Deny Booking Request?")
+
+  scenario 'If no bookings have been requested, user should see a default message' do 
+    guard_clause_for_no_booking 
+    expect(page).to have_text "You have no booking requests."
+
   end
 end
 

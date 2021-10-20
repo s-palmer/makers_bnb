@@ -10,6 +10,7 @@ require './lib/booking'
 require 'sinatra/partial'
 require 'pg'
 require './lib/space'
+require './lib/booking_calendar'
 require './helpers/spaces_helper'
 
 class MakersBNB < Sinatra::Base
@@ -44,8 +45,14 @@ class MakersBNB < Sinatra::Base
   end
 
   post '/new-space' do
-    Space.create(name: params[:name], description: params[:description], price: params[:price],
+    @space = Space.create(name: params[:name], description: params[:description], price: params[:price],
                  available_from: params[:availablefrom_date], available_to: params[:availableto_date], user_id: @user.id)
+
+    BookingCalendar.create(
+      space_id: @space.id,
+      start_date: params[:availablefrom_date],
+      end_date: params[:availableto_date]
+      )
     redirect '/spaces'
   end
 
@@ -79,7 +86,7 @@ class MakersBNB < Sinatra::Base
     redirect '/'
   end
 
-  get('/') do
+  get '/' do
     erb :index
   end
 

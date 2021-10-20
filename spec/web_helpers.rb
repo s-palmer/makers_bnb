@@ -16,3 +16,8 @@ def new_space_creation
   click_button('List my Space')
 end
 
+def guard_clause_for_no_booking 
+  create_user_and_sign_in
+  click_link 'Requests'
+end
+
