@@ -1,20 +1,21 @@
-<%# <div class="row">
-  <form action="/spaces" method="get">
-    <fieldset>
-      <label for="booking_date">Booking Date</label>
-      <input type="date" name="booking_date" id="booking_date">
-    </fieldset>
-    <input type="submit" value="Filter">
-  </form>
-</div> %>
-
 <div class="row">
-  <div class="col">
+    <div class="px-4 py-2 text-center">
+      <h5 class="display-6 mb-2 fw-bold text-danger fst-italic">Search by Date</h5>
+      <div class="col-lg-6 mx-auto">
+      <form action="/spaces" method="get">
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <input type="date" name="booking_date" id="booking_date">
+          <input type="submit" value="Search" class="btn btn-outline-danger">
+        </div>
+        </form>
+      </div>
+    </div>
+  <div class="col d-flex justify-content-center">
     <div class="d-flex flex-column">
       <% @spaces.each_with_index do |space, i| %>
       <% if i.even? %>
-      <div class="card m-5" style="width: 25rem;">
-        <img src="<%= generate_image %>" class="card-img-top" alt="...">
+      <div class="card m-5 " style="width: 25rem;">
+        <img src="<%= generate_image %>" class="card-img-top hover_image" alt="...">
         <div class="card-body">
           <h5 class="card-title"><%= space.name %></h5>
           <p class="card-text"><%= space.description %>
@@ -31,9 +32,8 @@
           </div>
         </div>
         <form action="/spaces/<%= space.id %>/view" method="get">
-          <button class="btn btn-sm m-2 btn-link bg-white" type="submit" id="view_specific_button"
-            value="<%= space.id %>">
-            <h6>View</h6>
+          <button class="btn btn-sm m-2 btn-outline-danger" type="submit" value="<%= space.id %>">
+            View
           </button>
         </form>
         <div class="card-footer text-muted d-flex justify-content-center">
@@ -44,18 +44,18 @@
       <% end %>
     </div>
   </div>
-  <div class="col">
+  <div class="col d-flex justify-content-center">
     <div class="d-flex flex-column">
       <% @spaces.each_with_index do |space, i| %>
       <% if i.odd? %>
       <div class="card m-5" style="width: 25rem;">
-          <img src="<%= generate_image %>" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title"><%= space.name %></h5>
-            <p class="card-text"><%= space.description %>
-            </p>
-          </div>
-          <div class="d-flex flex-row space justify-content-evenly">
+        <img src="<%= generate_image %>" class="card-img-top hover_image" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><%= space.name %></h5>
+          <p class="card-text"><%= space.description %>
+          </p>
+        </div>
+        <div class="d-flex flex-row space justify-content-evenly">
           <div>
             <p class="mb-0 text-secondary">From:</p>
             <p><%= Date.parse(space.available_from).strftime('%a %-d %b %Y') %></p>
@@ -64,20 +64,19 @@
             <p class="mb-0 text-secondary">To:</p>
             <p><%= Date.parse(space.available_to).strftime('%a %-d %b %Y') %></p>
           </div>
-          </div>
-         <form action="/spaces/<%= space.id %>/view" method="get">
-           <button class="btn btn-sm m-2 btn-link bg-white" type="submit" id="view_specific_button"
-             value="<%= space.id %>">
-             <h6>View</h6>
-           </button>
-         </form>
+        </div>
+        <form action="/spaces/<%= space.id %>/view" method="get">
+          <button class="btn btn-sm m-2 btn-outline-danger" type="submit" value="<%= space.id %>">
+            View
+          </button>
+        </form>
         <div class="card-footer text-muted d-flex justify-content-center">
           £<%= space.price %> per night
         </div>
-        </div>
-    <% end %>
-    <% end %>
+      </div>
+      <% end %>
+      <% end %>
+    </div>
+
+
   </div>
- 
-  
-</div>
