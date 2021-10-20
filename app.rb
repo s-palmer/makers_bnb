@@ -46,6 +46,9 @@ class MakersBNB < Sinatra::Base
 
   get '/spaces/:id/view' do
     @space = Space.find(id: params[:id]).first
+    space_id = params[:id]
+    @availability = BookingCalendar.availability(space_id: space_id)
+    p @availability
     erb :'view_space'
   end
 
