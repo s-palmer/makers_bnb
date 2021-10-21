@@ -51,7 +51,8 @@
           <img src="<%= get_space_image_url(id: request.space_id) %>" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">Space: <%= get_space_name(id: request.space_id) %></h5>
-            <p class="card-text">Renter: <%= renter.name  %>
+            <p class="card-text">Renter Name: <%= renter.name  %>
+            <p class="card-text">Email Address: <%= renter.email_address %>
             </p>
           </div>
           <div class="d-flex flex-row space justify-content-evenly">
