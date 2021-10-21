@@ -13,10 +13,10 @@
 * [Stack](#stack)
 * [Usage](#usage)
 * [Specification](#specification)
-  * [User Stories](#user_stories)
-  * [Headline Spec](#headline_spec)
-  * [Nice-to-haves](#nice_to_have)
-* [The Team](#team)   
+  * [Stories](#stories)
+  * [Headlines](#headlines)
+  * [Extras](#extras)
+* [Team](#team)   
 
 
 <div align="center" >
@@ -50,9 +50,10 @@ bundle install
 database queries - rack file?
 ```
 
-## [Specification for the app](https://github.com/arthurfincham/makers_bnb#specification)
+## [Specification](https://github.com/arthurfincham/makers_bnb#specification)
 
-#### [User Stories](https://github.com/arthurfincham/makers_bnb#user_stories)
+
+#### [Stories](https://github.com/arthurfincham/makers_bnb#stories)
 
 ```
 As a user,
@@ -105,7 +106,7 @@ If a booking request has not be accepted
 I am still available
 ```
 
-#### [Headline specifications](https://github.com/arthurfincham/makers_bnb#headline_spec)
+#### [Headlines](https://github.com/arthurfincham/makers_bnb#headlines)
 
 - Any signed-up user can list a new space.
 - Users can list multiple spaces.
@@ -115,7 +116,7 @@ I am still available
 - Nights for which a space has already been booked should not be available for users to book that space.
 - Until a user has confirmed a booking request, that space can still be booked for that night.
 
-#### [Nice-to-haves]((https://github.com/arthurfincham/makers_bnb#nice_to_have))
+#### [Extras]((https://github.com/arthurfincham/makers_bnb#extras))
 
 - Users should receive an email whenever one of the following happens:
  - They sign up
@@ -133,7 +134,7 @@ I am still available
 - A ‘chat’ functionality once a space has been booked, allowing users whose space-booking request has been confirmed to chat with the user that owns that space
 - Basic payment implementation though Stripe.
 
-## [Team MADS](https://github.com/arthurfincham/makers_bnb#team)
+## [Team](https://github.com/arthurfincham/makers_bnb#team)
 
 * Max - [Github](https://github.com/maxcfry)
 * Arthur - [Github](https://github.com/arthurfincham)
