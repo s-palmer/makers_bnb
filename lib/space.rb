@@ -101,4 +101,12 @@ class Space
       )
     end
   end
+
+  def self.update(space:)
+    DatabaseConnection.query(
+      'UPDATE spaces
+        SET name = $1, description = $2, price = $3, url = $4
+        WHERE id = $5;',
+      [space.name, space.description, space.price, space.url, space.user_id])
+  end
 end

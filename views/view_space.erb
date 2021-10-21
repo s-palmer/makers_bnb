@@ -1,4 +1,13 @@
 <div class="col mx-5 ">
+<% if @space.user_id == @user.id %>
+  <div class="row" style="margin: 50px;">
+    <div class="d-flex justify-content-center">
+      <form action="/spaces/<%= @space.id %>/edit">
+        <input class="btn-lg btn-danger" type="submit" name="EDIT THIS LISTING" value="EDIT THIS LISTING">
+      </form>
+    </div>
+  </div>
+<% end %>
 <div class="row">
  <div class="px-4 mt-3 text-center">
    <h1 class="display-5 fw-bold"><%= @space.name%></h1>
@@ -43,5 +52,6 @@
     </div>
   </div>
 </div>
+  
 </div>
-</div>
+
