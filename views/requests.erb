@@ -11,9 +11,9 @@
           <div class="card-header text-muted d-flex justify-content-center">
             <%= request.booking_confirmed == "t" ? "CONFIRMED" : "UNCOMFIRMED"  %>
           </div>  
-          <img src="<%= generate_image %>" class="card-img-top" alt="...">
+          <img src="<%= get_space_image_url(id: request.space_id) %>" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">Space: <%= request.space_id %></h5>
+            <h5 class="card-title">Space: <%= get_space_name(id: request.space_id) %></h5>
             <p class="card-text"><%= %>
             </p>
           </div>
@@ -37,9 +37,9 @@
           <div class="card-header text-muted d-flex justify-content-center">
             <%= request.booking_confirmed == "t" ? "CONFIRMED" : "UNCONFIRMED"  %>
           </div>
-          <img src="<%= generate_image %>" class="card-img-top" alt="...">
+          <img src="<%= get_space_image_url(id: request.space_id) %>" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">Space: <%= request.space_id %></h5>
+            <h5 class="card-title">Space: <%= get_space_name(id: request.space_id) %></h5>
             <p class="card-text">Renter: <%= renter.name  %>
             </p>
           </div>
