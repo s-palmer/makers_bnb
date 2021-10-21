@@ -1,7 +1,7 @@
 
 <div class="row">
-  <div class="col">
-    <h1>Requests I've made:</h1>
+  <div class="col ">
+    <h2 class="text-center mt-4">Requests I've made:</h2>
     <div class="d-flex flex-column">
       <% if @my_requests.empty? %>
         "You have no booking requests."
@@ -28,8 +28,8 @@
       <% end %>
     </div>
   </div>
-  <div class="col">
-    <h1>Requests I've received:</h1>
+  <div class="col ">
+    <h2 class="text-center mt-4">Requests I've received:</h2>
     <div class="d-flex flex-column">
       <% @incoming_requests.each do |request|  %>
       <% renter = User.find(id: request.user_id)  %>
@@ -54,11 +54,11 @@
             <input type="hidden" name="booking_id" value="<%= request.id %>" />
             <input type="hidden" name="space_id" value="<%= request.space_id %>" />
             <input type="hidden" name="request_date" value="<%= request.start_date %>" />
-            <input type="submit" id="confirm" value="Confirm Booking">
+            <input class="btn btn-sm btn-outline-success"type="submit" id="confirm" value="Confirm Booking">
             </form>
             <form action="/deny-booking" method="post">
             <input type="hidden" name="booking_id" value="<%= request.id %>" />
-            <input type="submit" id="deny" value="Deny Booking">
+            <input class="btn btn-sm btn-outline-danger" type="submit" id="deny" value="Deny Booking">
             </form>
           </div>
         </div>
