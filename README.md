@@ -2,10 +2,10 @@
 
 ### Team MADS
 
-* Max
-* Arthur
-* Doug
-* Sergei
+* Max - [Github](https://github.com/maxcfry)
+* Arthur - [Github](https://github.com/arthurfincham)
+* Doug - [Github](https://github.com/dpkerins)
+* Sergei - [Github](https://github.com/s-palmer)
 
 ## Stack
 
