@@ -44,10 +44,44 @@
 
 ## [Usage](https://github.com/arthurfincham/makers_bnb#usage)
 
+### Clone Repo
+
 ```
-git clone
+$ git clone git@github.com:arthurfincham/makers_bnb.git
+```
+
+### Install Bundler and Dependencies
+
+```
+$ gem install bundler
+```
+```
 bundle install
-database queries - rack file?
+```
+
+### Create the databases:
+
+```
+$ rake setup
+```
+
+### Seed the development database with test data:
+
+```
+$ rake seed
+```
+
+### Launch server:
+
+```
+$ rackup
+```
+
+Browse to localhost:9292 in your browser.
+
+* To drop the databases
+```
+$ rake drop_dbs
 ```
 
 ## [Specification](https://github.com/arthurfincham/makers_bnb#specification)
