@@ -129,6 +129,7 @@ class MakersBNB < Sinatra::Base
     p params
     Booking.confirm(id: params["booking_id"])
     Booking.change_availability(id: params["space_id"], date: params["request_date"])
+    Booking.cancel_competing_requests(id: params["space_id"], date: params["request_date"], booking_id: params["booking_id"])
     redirect('/requests')
   end
 
