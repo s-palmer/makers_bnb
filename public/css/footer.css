@@ -1,4 +1,3 @@
-
 @font-face {
   font-family: "Myriad";
   src: url("fonts/MYRIADPRO-SEMIBOLD.ttf")
@@ -17,7 +16,6 @@ main, body {
   background-size: 100px 100px;
 }
 
-
 .footer {
   bottom: 0;
   position: fixed;
@@ -34,7 +32,6 @@ main, body {
   opacity: .8;
 }
 
-
 .list-group-item {
   border: none !important;
 }
@@ -46,15 +43,19 @@ main, body {
   width: 100vw;
   height: 100vh;
   overflow-x: hidden;
-
 }
 
-#welcome-page-text{
+#welcome-page-text {
   display: inline-block;
-  background-color: rgba(0,0,0, .5);
+  background-color: rgba(0, 0, 0, .2);
   padding: 12px;
   border-radius: 10px;
   margin-top: 15vh;
+}
 
-
+#search-by-date {
+  display: inline-block;
+  background-color: rgba(0, 0, 0, .1) !important;
+  padding: 10px;
+  border-radius: 10px;
 }
