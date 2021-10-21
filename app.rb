@@ -59,6 +59,7 @@ class MakersBNB < Sinatra::Base
   end
 
   post '/edit-space' do
+    p params
     @space = Space.find(id: params[:space_id]).first
     @new_space = Space.new(id: params[:id], name: params[:name], description: params[:description], price: params[:price], available_from: @space.available_from, available_to: @space.available_to, user_id: @space.id, url: params[:url])
     Space.update(space: @new_space)
