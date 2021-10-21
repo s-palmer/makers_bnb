@@ -7,12 +7,12 @@
           <% if @user %>
             <h1 class="m-7 text-white">Welcome, <%= @user.name %></h1>
           <% else %>
-            <h1 class="m-7 text-white">Welcome, Sign Up to make a booking</h1>
+            <h1 class="m-7 text-white">Welcome, sign up to make a booking</h1>
           <% end %>
         </div>
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
           <form action="/spaces" method="get">
-            <button type="submit">View Available Spaces</button>
+            <button type="submit">View Spaces</button>
           </form>
         </div>
         </form>
