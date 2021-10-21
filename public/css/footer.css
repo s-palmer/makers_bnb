@@ -1,3 +1,23 @@
+
+@font-face {
+  font-family: "Myriad";
+  src: url("fonts/MYRIADPRO-SEMIBOLD.ttf")
+}
+
+body, button, input {
+  font-family: "Myriad" !important;
+}
+
+body {
+  height: 100vh;
+}
+
+main, body {
+  background-image: url("/images/orangenoise.png") !important;
+  background-size: 100px 100px;
+}
+
+
 .footer {
   bottom: 0;
   position: fixed;
@@ -14,6 +34,10 @@
   opacity: .8;
 }
 
+
+.list-group-item {
+  border: none !important;
+
 #homepage_main_view {
   background-image: url("/images/home_pic.jpg");
   background-size: auto;
@@ -21,4 +45,5 @@
   width: 100vw;
   height: 100vh;
   overflow-x: hidden;
+
 }
