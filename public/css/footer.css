@@ -1,3 +1,4 @@
+
 @font-face {
   font-family: "Myriad";
   src: url("fonts/MYRIADPRO-SEMIBOLD.ttf")
@@ -16,6 +17,7 @@ main, body {
   background-size: 100px 100px;
 }
 
+
 .footer {
   bottom: 0;
   position: fixed;
@@ -32,6 +34,16 @@ main, body {
   opacity: .8;
 }
 
+
 .list-group-item {
   border: none !important;
+
+#homepage_main_view {
+  background-image: url("/images/home_pic.jpg");
+  background-size: auto;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+
 }
