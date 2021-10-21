@@ -51,7 +51,7 @@ class MakersBNB < Sinatra::Base
 
   post '/new-space' do
     @space = Space.create(name: params[:name], description: params[:description], price: params[:price],
-                 available_from: params[:availablefrom_date], available_to: params[:availableto_date], user_id: @user.id)
+                 available_from: params[:availablefrom_date], available_to: params[:availableto_date], user_id: @user.id, url: [params[:image_url]])
 
     BookingCalendar.create(
       space_id: @space.id,
