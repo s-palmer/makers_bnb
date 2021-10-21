@@ -3,22 +3,22 @@
   <div class="d-flex align-items-center">
     <div class="col">
       <div class="mb-3">
-        <label for="listing-name" class="form-label">Name</label>
+        <label for="listing-name" class="form-label d-inline bg-white">Name</label>
         <input type="text" name="name" class="form-control" id="listing-name" aria-describedby="spacename">
-        <div id="spacename" class="form-text">Please enter a name for your space.</div>
+        <div id="spacename" class="form-text d-inline bg-white">Please enter a name for your space.</div>
       </div>
     </div>
     <div class="m-3"></div>
     <div class="col">
       <div class="mb-3">
         <div>
-          <label for="listing-price" class="form-label">Price</label>
+          <label for="listing-price" class="form-label d-inline bg-white">Price</label>
         </div>
         <div class="input-group">
           <span class="input-group-text">£</span>
           <input type="text" name="price" class="form-control" id="listing-price" aria-label="Amount (to the nearest dollar)">
         </div>
-        <div id="spacename" class="form-text">Please enter the nightly price.</div>
+        <div id="spaceprice" class="form-text d-inline bg-white">Please enter the nightly price.</div>
       </div>
     </div>
   </div>
@@ -27,14 +27,14 @@
   <div class="d-flex align-items-center">
     <div class="col">
       <div class="mb-3">
-        <label class=" form-label" for="listing-fromdate">Available From</label>
+        <label class=" form-label d-inline bg-white" for="listing-fromdate">Available From</label>
         <input type="date" class="form-control" name="availablefrom_date" id="listing-fromdate">
       </div>
     </div>
     <div class="m-3"></div>
     <div class="col">
       <div class="mb-3">
-        <label class=" form-label" for="listing-todate">Available To</label>
+        <label class=" form-label d-inline bg-white" for="listing-todate">Available To</label>
         <input type="date" class="form-control" name="availableto_date" id="listing-todate">
       </div>
     </div>
@@ -42,17 +42,17 @@
 
 
   <div class="mb-3">
-    <label for="listing-description" class=" form-label">Description</label>
+    <label for="listing-description" class=" form-label d-inline bg-white">Description</label>
     <textarea type="text" class="form-control" rows="5" id="listing-description"
       aria-describedby="spacedescription" name="description" ></textarea>
-    <div id="spacedescription" class="form-text ">Please enter a description for your space.</div>
+    <div id="spacedescription" class="form-text d-inline bg-white ">Please enter a description for your space.</div>
   </div>
 
   <div class="mb-3">
-    <label for="image_url" class=" form-label">Image Link</label>
+    <label for="image_url" class=" form-label d-inline bg-white">Image Link</label>
     <input type="text" class="form-control" rows="5" id="image_url" aria-describedby="spacedescription"
       name="image_url">
-    <div id="image_url_descrip" class="form-text ">Please enter a url for your space.</div>
+    <div id="image_url_descrip" class="form-text d-inline bg-white ">Please enter a url for your space.</div>
   </div>
 
   <button type="submit" class="btn btn-primary" name="submit" value="List my Space"
