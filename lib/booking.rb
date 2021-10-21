@@ -42,6 +42,7 @@ class Booking
     end
   end
 
+
   def self.all_incoming(id:)
     bookings = DatabaseConnection.query('SELECT * FROM bookings WHERE host_id = $1', [id])
     bookings.map do |booking|
