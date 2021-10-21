@@ -7,7 +7,8 @@ feature 'Date Filter' do
       price: 100,
       available_from: '2021-10-01 00:00:00',
       available_to: '2021-10-02 00:00:00',
-      user_id: user.id
+      user_id: user.id,
+      url: 'https://dhcottages.co.uk/wp-content/uploads/2018/02/White-Sands-Pet-Friendly-Sea-View-Swanage-view-to-sea-1.jpg'
     )
     space = Space.create(
       name: 'TestSpace2',
@@ -15,7 +16,8 @@ feature 'Date Filter' do
       price: 100,
       available_from: '2021-11-01 00:00:00',
       available_to: '2021-11-03 00:00:00',
-      user_id: user.id
+      user_id: user.id,
+      url: 'https://dhcottages.co.uk/wp-content/uploads/2018/02/White-Sands-Pet-Friendly-Sea-View-Swanage-view-to-sea-1.jpg'
     )
     space = Space.create(
       name: 'TestSpace3',
@@ -23,11 +25,12 @@ feature 'Date Filter' do
       price: 100,
       available_from: '2021-10-19 00:00:00',
       available_to: '2021-10-25 00:00:00',
-      user_id: user.id
+      user_id: user.id,
+      url: 'https://dhcottages.co.uk/wp-content/uploads/2018/02/White-Sands-Pet-Friendly-Sea-View-Swanage-view-to-sea-1.jpg'
     )
     visit '/spaces'
     fill_in(:booking_date, with: '2021-11-02')
-    click_button('Filter')
+    click_button('Search')
     expect(page).to have_content 'TestSpace2'
     expect(page).to_not have_content 'TestSpace1'
     expect(page).to_not have_content 'TestSpace3'

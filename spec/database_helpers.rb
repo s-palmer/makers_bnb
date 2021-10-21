@@ -15,20 +15,27 @@ def create_test_spaces
     description: 'A tranquil test space in test land.',
     price: 100,
     available_from: '2021-10-19 00:00:00',
-    available_to: '2021-10-31 00:00:00'
+    available_to: '2021-10-31 00:00:00',
+    user_id: user.id,
+    url: 'https://dhcottages.co.uk/wp-content/uploads/2018/02/White-Sands-Pet-Friendly-Sea-View-Swanage-view-to-sea-1.jpg'
   )
   Space.create(
     name: 'TestSpace2',
     description: 'A tranquil test space in test land.',
     price: 100,
     available_from: '2021-10-19 00:00:00',
-    available_to: '2021-10-31 00:00:00'
+    available_to: '2021-10-31 00:00:00',
+    user_id: user.id,
+    url: 'https://dhcottages.co.uk/wp-content/uploads/2018/02/White-Sands-Pet-Friendly-Sea-View-Swanage-view-to-sea-1.jpg'
   )
+
   Space.create(
     name: 'TestSpace3',
     description: 'A tranquil test space in test land.',
     price: 100,
     available_from: '2021-10-19 00:00:00',
-    available_to: '2021-10-31 00:00:00'
-  )
+    available_to: '2021-10-31 00:00:00',
+    user_id: user.id,
+    url: 'https://dhcottages.co.uk/wp-content/uploads/2018/02/White-Sands-Pet-Friendly-Sea-View-Swanage-view-to-sea-1.jpg'
+    )
 end

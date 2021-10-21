@@ -10,7 +10,8 @@ feature 'Viewing Host Spaces' do
       price: 100,
       available_from: '2021-10-19 00:00:00',
       available_to: '2021-10-31 00:00:00',
-      user_id: host.id
+      user_id: host.id,
+      url: 'https://dhcottages.co.uk/wp-content/uploads/2018/02/White-Sands-Pet-Friendly-Sea-View-Swanage-view-to-sea-1.jpg'
     )
     DatabaseConnection.query("INSERT INTO bookings (start_date, end_date, booking_confirmed, user_id, space_id, host_id)
       VALUES ('2021-11-18 15:44:02.776337', '2021-12-18 15:44:02.776337', false, #{user.id}, #{space.id}, #{host.id} );")

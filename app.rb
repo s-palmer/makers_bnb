@@ -48,14 +48,17 @@ class MakersBNB < Sinatra::Base
     @space = Space.find(id: params[:id]).first
     space_id = params[:id]
     @availability = BookingCalendar.availability(space_id: space_id)
+<<<<<<< HEAD
     p @availability
     p @availability[0]
+=======
+>>>>>>> main
     erb :'view_space'
   end
 
   post '/new-space' do
     @space = Space.create(name: params[:name], description: params[:description], price: params[:price],
-                 available_from: params[:availablefrom_date], available_to: params[:availableto_date], user_id: @user.id)
+                 available_from: params[:availablefrom_date], available_to: params[:availableto_date], user_id: @user.id, url: [params[:image_url]])
 
     BookingCalendar.create(
       space_id: @space.id,
@@ -85,7 +88,7 @@ class MakersBNB < Sinatra::Base
   end
 
   get '/session_error' do
-    'Please check your email or password.'
+    erb :'errors/sessions'
   end
 
   post '/users' do
@@ -116,6 +119,7 @@ class MakersBNB < Sinatra::Base
 
   post '/bookings/new' do
     booking = Booking.create(start_date: params[:start_date], end_date: params[:end_date], booking_confirmed: false, user_id: session[:user_id], space_id: params[:space_id], host_id: params[:host_id])
+    p params
     if booking
       redirect '/requests'
     else
@@ -124,7 +128,7 @@ class MakersBNB < Sinatra::Base
   end
 
   get '/permission_error' do
-    'Please login to view this page.'
+    erb :'errors/permissions'
   end
 
   post '/confirm-booking' do
