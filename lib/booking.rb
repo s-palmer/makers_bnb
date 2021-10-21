@@ -63,4 +63,11 @@ class Booking
   def self.deny(id:)
     DatabaseConnection.query('DELETE FROM bookings WHERE id = $1', [id])
   end
+
+  def self.cancel_competing_requests(id:, date:, booking_id:)
+    result = DatabaseConnection.query('SELECT * FROM bookings WHERE space_id = $1 AND start_date = $2 AND id != $3',[id, date, booking_id])
+    result.each do |booking|
+      self.deny(id: booking["id"])
+    end
+  end
 end
