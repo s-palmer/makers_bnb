@@ -1,21 +1,21 @@
-<div class="row" id="homepage_main_view">
+<div class="row p-5 m-10" id="homepage_main_view">
     <div class="px-4 py-2 text-center" >
       <h5 class="display-6 mb-2 fw-bold text-danger fst-italic"></h5>
       <div class="col-lg-6 mx-auto">
-      <form action="/spaces" method="get">
+      <div id="welcome-page-text">
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
           <% if @user %>
             <h1 class="m-7 text-white">Welcome, <%= @user.name %></h1>
           <% else %>
-            <h1 class="m-7 text-white">Welcome, sign up to make a booking</h1>
+            <h1 class="m-7 text-white">Find your dream holiday.</h1>
           <% end %>
         </div>
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
           <form action="/spaces" method="get">
-            <button type="submit">View Spaces</button>
+            <button class="btn btn-outline-light "type="submit">View Spaces</button>
           </form>
         </div>
-        </form>
+        </div>
       </div>
     </div>
 </div>
