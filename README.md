@@ -1,7 +1,59 @@
-# makers_bnb
-Arthur, Doug, Sergei and Max
+<div align="center">
 
-**User Stories**
+<img src="public/images/logo_red.png" width="300px">
+
+![](https://img.shields.io/github/last-commit/arthurfincham/makers_bnb)
+![](https://img.shields.io/github/languages/count/arthurfincham/makers_bnb)
+![](https://img.shields.io/github/languages/code-size/arthurfincham/makers_bnb)
+
+</div>
+
+## Table of Contents  
+* [Preview](#preview)
+* [Stack](#stack)
+* [Usage](#usage)
+* [Specification](#specification)
+  * [Stories](#stories)
+  * [Headlines](#headlines)
+  * [Extras](#extras)
+* [Team](#team)   
+
+
+<div align="center" >
+
+## [Preview](https://github.com/arthurfincham/makers_bnb#preview)
+
+
+<img src="#" width="800px">
+
+##### gif preview will go here
+
+&nbsp;
+
+## [Stack](https://github.com/arthurfincham/makers_bnb#stack)
+
+|                                                        | Tool                                                 | Use?                                       | Where can I see it?                                                  |
+|--------------------------------------------------------|------------------------------------------------------|--------------------------------------------|----------------------------------------------------------------------|
+| <img src="public/images/rspec.png" height="40" width="auto">       | [RSpec](https://rspec.info/)                         | Testing tool for Ruby.                     | ```/spec/*``` Unit tests for the app's classes.                              |
+| <img src="public/images/capybara.png" height="40" width="auto">    | [Capybara](https://github.com/teamcapybara/capybara) | Acceptance test framework for Ruby.        |  ```/spec/features/*``` Feature testing for the app. e.g. Sign in/out                   |
+| <img src="public/images/psql.png" height="40" width="auto">       | [PostgreSQL](https://www.postgresql.org)                         | Object-relation database.                     | ```/db/migrations/*``` In the SQL commands below.                              |
+| <img src="public/images/sinatra.jpg" height="40" width="auto">     | [Sinatra](http://sinatrarb.com/)                     | DSL for quickly making web apps with Ruby. | In the file structure for the project - it is built on Sinatra.      |
+| <img src="public/images/bootstrap.png" height="40" width="auto">     | [Bootstrap](https://getbootstrap.com/)                     | Open source tool-kit made by twitter. | All of the design.       |
+
+</div>
+
+## [Usage](https://github.com/arthurfincham/makers_bnb#usage)
+
+```
+git clone
+bundle install
+database queries - rack file?
+```
+
+## [Specification](https://github.com/arthurfincham/makers_bnb#specification)
+
+
+#### [Stories](https://github.com/arthurfincham/makers_bnb#stories)
 
 ```
 As a user,
@@ -54,7 +106,7 @@ If a booking request has not be accepted
 I am still available
 ```
 
-### Headline specifications
+#### [Headlines](https://github.com/arthurfincham/makers_bnb#headlines)
 
 - Any signed-up user can list a new space.
 - Users can list multiple spaces.
@@ -64,7 +116,7 @@ I am still available
 - Nights for which a space has already been booked should not be available for users to book that space.
 - Until a user has confirmed a booking request, that space can still be booked for that night.
 
-### Nice-to-haves
+#### [Extras]((https://github.com/arthurfincham/makers_bnb#extras))
 
 - Users should receive an email whenever one of the following happens:
  - They sign up
@@ -82,4 +134,9 @@ I am still available
 - A ‘chat’ functionality once a space has been booked, allowing users whose space-booking request has been confirmed to chat with the user that owns that space
 - Basic payment implementation though Stripe.
 
-### User Stories
+## [Team](https://github.com/arthurfincham/makers_bnb#team)
+
+* Max - [Github](https://github.com/maxcfry)
+* Arthur - [Github](https://github.com/arthurfincham)
+* Doug - [Github](https://github.com/dpkerins)
+* Sergei - [Github](https://github.com/s-palmer)

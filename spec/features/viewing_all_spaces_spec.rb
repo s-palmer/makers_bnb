@@ -49,14 +49,10 @@ feature 'Viewing Spaces' do
     click_button('List my Space')
 
     click_link('All Spaces')
-    expect(page).to have_content('Space: 1')
     expect(page).to have_content('Boschtower')
     expect(page).to have_content('Medieval Nightmare Fuel')
     expect(page).to have_content('£75')
-    expect(page).to have_content('Available From: Thu 21 October 2021')
-    expect(page).to have_content('Available To: Sat 30 October 2021')
-
-    expect(page).to have_content('Space: 2')
-    expect(page).to have_content('Space: 3')
+    expect(page).to have_text('From: Thu 21 Oct 2021', normalize_ws: true)
+    expect(page).to have_text('To: Sat 30 Oct 2021', normalize_ws: true)
   end
 end

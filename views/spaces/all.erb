@@ -1,15 +1,17 @@
+<div class="d-flex flex-column align-items-center">
+   <div
+     class="py-2 p-0 my-3 border border-danger d-flex w-50 align-items-center rounded justify-content-evenly bg-light">
+     <h5 class="text-danger mb-0">Search by Date</h5>
+     <div class="m-2"></div>
+     <form action="/spaces" method="get">
+       <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+         <input type="date" name="booking_date" id="booking_date">
+         <input type="submit" value="Search" class="btn btn-outline-danger">
+     </form>
+   </div>
+   </div>
 <div class="row">
-    <div class="px-4 py-2 text-center">
-      <h5 class="display-6 mb-2 fw-bold text-danger fst-italic">Search by Date</h5>
-      <div class="col-lg-6 mx-auto">
-      <form action="/spaces" method="get">
-        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-        <input type="date" name="booking_date" id="booking_date">
-          <input type="submit" value="Search" class="btn btn-outline-danger">
-        </div>
-        </form>
-      </div>
-    </div>
+
   <div class="col d-flex justify-content-center">
     <div class="d-flex flex-column">
       <% @spaces.each_with_index do |space, i| %>
@@ -31,11 +33,13 @@
             <p><%= Date.parse(space.available_to).strftime('%a %-d %b %Y') %></p>
           </div>
         </div>
+        <div class="w-100 d-flex flex-row  justify-content-center">
         <form action="/spaces/<%= space.id %>/view" method="get">
           <button class="btn btn-sm m-2 btn-outline-danger" type="submit" value="<%= space.id %>">
             View
           </button>
         </form>
+        </div>
         <div class="card-footer text-muted d-flex justify-content-center">
           £<%= space.price %> per night
         </div>
@@ -65,11 +69,13 @@
             <p><%= Date.parse(space.available_to).strftime('%a %-d %b %Y') %></p>
           </div>
         </div>
+        <div class="w-100 d-flex flex-row  justify-content-center">
         <form action="/spaces/<%= space.id %>/view" method="get">
           <button class="btn btn-sm m-2 btn-outline-danger" type="submit" value="<%= space.id %>">
             View
           </button>
         </form>
+        </div>
         <div class="card-footer text-muted d-flex justify-content-center">
           £<%= space.price %> per night
         </div>
@@ -79,4 +85,5 @@
     </div>
 
 
+  </div>
   </div>

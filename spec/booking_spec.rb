@@ -45,4 +45,5 @@ describe Booking do
     end
   end
 
+
 end

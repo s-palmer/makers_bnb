@@ -27,7 +27,7 @@ class Booking
       end_date: result[0]['end_date'],
       booking_confirmed: result[0]['booking_confirmed'],
       user_id: result[0]['user_id'],
-      space_id: result[0]['space_id'], 
+      space_id: result[0]['space_id'],
       host_id: result[0]['host_id']
     )
   end
@@ -41,6 +41,7 @@ class Booking
                   space_id: request['space_id'], host_id: request['host_id'])
     end
   end
+
 
   def self.all_incoming(id:)
     bookings = DatabaseConnection.query('SELECT * FROM bookings WHERE host_id = $1', [id])
