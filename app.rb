@@ -48,7 +48,6 @@ class MakersBNB < Sinatra::Base
     @space = Space.find(id: params[:id]).first
     space_id = params[:id]
     @availability = BookingCalendar.availability(space_id: space_id)
-    p @availability
     erb :'view_space'
   end
 
@@ -115,6 +114,7 @@ class MakersBNB < Sinatra::Base
 
   post '/bookings/new' do
     booking = Booking.create(start_date: params[:start_date], end_date: params[:end_date], booking_confirmed: false, user_id: session[:user_id], space_id: params[:space_id], host_id: params[:host_id])
+    p params
     if booking
       redirect '/requests'
     else

@@ -9,12 +9,6 @@
       <p class="lead"><%= @space.description%></p>
       <div class="d-flex justify-content-center">
         <div class="input-group w-25 m-5">
-          <button type="button" id="book_request_button"class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Request to stay
-          </button>
-        </div>
-        <%= partial :request_form %>
-        <div class="input-group w-25 m-5">
           <span class="input-group-text">£</span>
           <span type="text" name="price" class="form-control" id="listing-price"
             aria-label="Amount (to the nearest dollar)"><%= @space.price %><small class="fst-italic text-muted"> per
@@ -27,10 +21,13 @@
     <ul class="list-group list-group-horizontal">
       <% @availability.reverse.each do |date| %>
         <li class="list-group-item" id="list-group-item">
-          <form action="/send-request" method="post">
-            <button type="submit">
+          <form action="/bookings/new" method="post">
+            <button type="submit" name="start_date" id="listing_fromdate" value="<%= date %>">
               <%= date %>
             </button>
+            <input type="hidden" name="end_date" id="listing_todate" value="<%= date %>">
+            <input type="hidden" name="space_id" value="<%= @space.id %>">
+           <input type="hidden" name="host_id" value="<%= @space.user_id %>">
           </form>
         </li>
       <% end %>
