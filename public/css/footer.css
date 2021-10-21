@@ -37,6 +37,7 @@ main, body {
 
 .list-group-item {
   border: none !important;
+}
 
 #homepage_main_view {
   background-image: url("/images/home_pic.jpg");
@@ -45,5 +46,15 @@ main, body {
   width: 100vw;
   height: 100vh;
   overflow-x: hidden;
+
+}
+
+#welcome-page-text{
+  display: inline-block;
+  background-color: rgba(0,0,0, .5);
+  padding: 12px;
+  border-radius: 10px;
+  margin-top: 15vh;
+
 
 }
