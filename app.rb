@@ -83,7 +83,7 @@ class MakersBNB < Sinatra::Base
   end
 
   get '/session_error' do
-    'Please check your email or password.'
+    erb :'errors/sessions'
   end
 
   post '/users' do
@@ -123,7 +123,7 @@ class MakersBNB < Sinatra::Base
   end
 
   get '/permission_error' do
-    'Please login to view this page.'
+    erb :'errors/permissions'
   end
 
   post '/confirm-booking' do
