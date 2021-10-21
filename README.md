@@ -24,7 +24,7 @@
 ## [Preview](https://github.com/arthurfincham/makers_bnb#preview)
 
 
-<img src="/images/site_preview.gif" width="800px">
+<img src="public/images/site_preview.gif" width="800px">
 
 
 &nbsp;
