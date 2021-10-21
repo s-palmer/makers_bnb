@@ -15,7 +15,8 @@ describe Space do
         price: 100,
         available_from: '2021-10-19 00:00:00',
         available_to: '2021-10-31 00:00:00',
-        user_id: user.id
+        user_id: user.id,
+        url: 'https://dhcottages.co.uk/wp-content/uploads/2018/02/White-Sands-Pet-Friendly-Sea-View-Swanage-view-to-sea-1.jpg'
       )
       persisted_data = persisted_data(table: :spaces, id: space.id)
 
@@ -37,7 +38,8 @@ describe Space do
         price: 100,
         available_from: '2021-10-19 00:00:00',
         available_to: '2021-10-31 00:00:00',
-        user_id: 1
+        user_id: 1,
+        url: 'https://dhcottages.co.uk/wp-content/uploads/2018/02/White-Sands-Pet-Friendly-Sea-View-Swanage-view-to-sea-1.jpg'
       )
       Space.create(
         name: 'TestSpace2',
@@ -45,7 +47,8 @@ describe Space do
         price: 100,
         available_from: '2021-10-19 00:00:00',
         available_to: '2021-10-31 00:00:00',
-        user_id: 1
+        user_id: 1,
+        url: 'https://dhcottages.co.uk/wp-content/uploads/2018/02/White-Sands-Pet-Friendly-Sea-View-Swanage-view-to-sea-1.jpg'
       )
       Space.create(
         name: 'TestSpace3',
@@ -53,7 +56,8 @@ describe Space do
         price: 100,
         available_from: '2021-10-19 00:00:00',
         available_to: '2021-10-31 00:00:00',
-        user_id: 1
+        user_id: 1,
+        url: 'https://dhcottages.co.uk/wp-content/uploads/2018/02/White-Sands-Pet-Friendly-Sea-View-Swanage-view-to-sea-1.jpg'
       )
       spaces = Space.all
 
@@ -75,7 +79,8 @@ describe Space do
         price: 100,
         available_from: '2021-10-19 00:00:00',
         available_to: '2021-10-31 00:00:00',
-        user_id: user.id
+        user_id: user.id,
+        url: 'https://dhcottages.co.uk/wp-content/uploads/2018/02/White-Sands-Pet-Friendly-Sea-View-Swanage-view-to-sea-1.jpg'
       )
       
       result = Space.find(id: space.id).first
@@ -98,7 +103,8 @@ describe Space do
         price: 100,
         available_from: '2021-10-19 00:00:00',
         available_to: '2021-10-31 00:00:00',
-        user_id: host.id
+        user_id: host.id,
+        url: 'https://dhcottages.co.uk/wp-content/uploads/2018/02/White-Sands-Pet-Friendly-Sea-View-Swanage-view-to-sea-1.jpg'
       )
       
       result = Space.find(id: space.id).first
@@ -110,7 +116,8 @@ describe Space do
         price: 100,
         available_from: '2021-10-19 00:00:00',
         available_to: '2021-10-31 00:00:00',
-        user_id: host.id
+        user_id: host.id,
+        url: 'https://dhcottages.co.uk/wp-content/uploads/2018/02/White-Sands-Pet-Friendly-Sea-View-Swanage-view-to-sea-1.jpg'
       )
       Space.create(
         name: 'TestSpace3',
@@ -118,7 +125,8 @@ describe Space do
         price: 100,
         available_from: '2021-10-19 00:00:00',
         available_to: '2021-10-31 00:00:00',
-        user_id: user.id
+        user_id: user.id,
+        url: 'https://dhcottages.co.uk/wp-content/uploads/2018/02/White-Sands-Pet-Friendly-Sea-View-Swanage-view-to-sea-1.jpg'
       )
       spaces = Space.mine(id: host.id)
 
