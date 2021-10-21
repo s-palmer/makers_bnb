@@ -48,11 +48,6 @@ class MakersBNB < Sinatra::Base
     @space = Space.find(id: params[:id]).first
     space_id = params[:id]
     @availability = BookingCalendar.availability(space_id: space_id)
-<<<<<<< HEAD
-    p @availability
-    p @availability[0]
-=======
->>>>>>> main
     erb :'view_space'
   end
 
