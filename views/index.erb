@@ -1,20 +1,22 @@
-<div class="row">
-    <div class="px-4 py-2 text-center">
+<div class="row" id="homepage_main_view">
+    <div class="px-4 py-2 text-center" >
       <h5 class="display-6 mb-2 fw-bold text-danger fst-italic"></h5>
       <div class="col-lg-6 mx-auto">
       <form action="/spaces" method="get">
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
           <% if @user %>
-            <h1>Welcome, <%= @user.name %></h1>
+            <h1 class="m-7 text-white">Welcome, <%= @user.name %></h1>
           <% else %>
-            <h1>Welcome, sign up to make a booking</h1>
+            <h1 class="m-7 text-white">Welcome, Sign Up to make a booking</h1>
           <% end %>
+        </div>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+          <form action="/spaces" method="get">
+            <button type="submit">View Available Spaces</button>
+          </form>
         </div>
         </form>
       </div>
     </div>
-  
-
-  
-  <img src="https://media.wired.com/photos/61169c0c7374835494528793/master/pass/Business-Airbnb-Pandemic-Recovery.jpg" class="img-fluid" alt="Responsive image">
+</div>
 

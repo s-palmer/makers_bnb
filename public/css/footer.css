@@ -13,3 +13,12 @@
 .hover_image:hover {
   opacity: .8;
 }
+
+#homepage_main_view {
+  background-image: url("/images/home_pic.jpg");
+  background-size: auto;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+}
