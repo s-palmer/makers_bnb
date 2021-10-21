@@ -23,7 +23,6 @@ class BookingCalendar
   end
 
   def self.availability(space_id:)
-    # space_id = spaceid
     result = DatabaseConnection.query(
       "SELECT date FROM dates
       WHERE space_id = '#{space_id}'
