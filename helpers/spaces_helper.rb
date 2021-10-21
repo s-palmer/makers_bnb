@@ -10,4 +10,5 @@ def get_space_image_url(id:)
   space.values[0][0]
 end
 
+
 end

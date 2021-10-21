@@ -14,7 +14,6 @@ body {
 main, body {
   background-image: url("/images/orangenoise.png") !important;
   background-size: 100px 100px;
-  text-shadow: 0px 0px 14px #ffffff;
 }
 
 .footer {
@@ -31,4 +30,8 @@ main, body {
 
 .hover_image:hover {
   opacity: .8;
+}
+
+.list-group-item {
+  border: none !important;
 }
