@@ -113,12 +113,11 @@ class MakersBNB < Sinatra::Base
   end
 
   post '/bookings/new' do
-    booking = Booking.create(start_date: params[:start_date], end_date: params[:end_date], booking_confirmed: false, user_id: session[:user_id], space_id: params[:space_id], host_id: params[:host_id])
-    p params
-    if booking
+    if session[:user_id]
+      booking = Booking.create(start_date: params[:start_date], end_date: params[:end_date], booking_confirmed: false, user_id: session[:user_id], space_id: params[:space_id], host_id: params[:host_id])
       redirect '/requests'
     else
-      redirect '/spaces/:id/view' 
+      redirect '/permission_error' 
     end
   end
 
