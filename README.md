@@ -77,9 +77,9 @@ $ rake seed
 $ rackup
 ```
 
-Browse to localhost:9292 in your browser.
+**Browse to localhost:9292 in your browser.**
 
-* To drop the databases
+#### To drop the databases:
 ```
 $ rake drop_dbs
 ```
