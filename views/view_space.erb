@@ -18,12 +18,13 @@
     </div>
   </div>
   <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-    <ul class="list-group list-group-horizontal">
-      <% @availability.reverse.each do |date| %>
-        <li class="list-group-item" id="list-group-item">
+    <h2 class="display-6 fw-bold lh-1 mb-3">Choose a date for your holiday:</h2>
+    <ul class="d-flex list-group list-group-horizontal flex-wrap p-5 justify-content-between">
+      <% @availability.each do |date| %>
+        <li class="w-14 list-group-item border border-grey" id="list-group-item">
           <form action="/bookings/new" method="post">
-            <button type="submit" name="start_date" id="listing_fromdate" value="<%= date %>">
-              <%= date %>
+            <button class="btn-outline-danger" type="submit" name="start_date" id="listing_fromdate" value="<%= date %>">
+              <%= Date::strptime(date, "%Y-%m-%d").strftime('%d/%m/%Y') %>
             </button>
             <input type="hidden" name="end_date" id="listing_todate" value="<%= date %>">
             <input type="hidden" name="space_id" value="<%= @space.id %>">

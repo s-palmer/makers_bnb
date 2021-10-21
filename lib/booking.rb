@@ -27,7 +27,7 @@ class Booking
       end_date: result[0]['end_date'],
       booking_confirmed: result[0]['booking_confirmed'],
       user_id: result[0]['user_id'],
-      space_id: result[0]['space_id'], 
+      space_id: result[0]['space_id'],
       host_id: result[0]['host_id']
     )
   end
