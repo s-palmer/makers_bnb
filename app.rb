@@ -51,6 +51,21 @@ class MakersBNB < Sinatra::Base
     erb :'view_space'
   end
 
+  get '/spaces/:id/edit' do
+    @space = Space.find(id: params[:id]).first
+    space_id = params[:id]
+    @availability = BookingCalendar.availability(space_id: space_id)
+    erb :'spaces/edit'
+  end
+
+  post '/edit-space' do
+    p params
+    @space = Space.find(id: params[:space_id]).first
+    @new_space = Space.new(id: params[:id], name: params[:name], description: params[:description], price: params[:price], available_from: @space.available_from, available_to: @space.available_to, user_id: @space.id, url: params[:url])
+    Space.update(space: @new_space)
+    redirect "/spaces/#{@space.id}/view"
+  end
+
   post '/new-space' do
     @space = Space.create(name: params[:name], description: params[:description], price: params[:price],
                  available_from: params[:availablefrom_date], available_to: params[:availableto_date], user_id: @user.id, url: params[:image_url])
@@ -137,6 +152,8 @@ class MakersBNB < Sinatra::Base
     Booking.deny(id: params["booking_id"])
     redirect('/requests')
   end
+
+
 
   run! if app_file == $PROGRAM_NAME
 end

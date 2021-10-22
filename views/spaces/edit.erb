@@ -1,0 +1,46 @@
+<form action="/edit-space" method="post">
+  <h1 class="display-5 fw-bold" style="margin-bottom: 10px;">Edit your listing:</h1>
+  <input type="hidden" name="space_id" value="<%= @space.id %>">
+  <div class="d-flex align-items-center" style="margin-top: 10px">
+    <div class="col">
+      <div class="mb-3">
+        <label for="listing-name" class="form-label d-inline bg-white">Name</label>
+        <input type="text" name="name" class="form-control" id="listing-name" aria-describedby="spacename" value="<%= @space.name %>">
+        <div id="spacename" class="form-text d-inline bg-white">Please enter a name for your space.</div>
+      </div>
+    </div>
+    <div class="m-3"></div>
+    <div class="col">
+      <div class="mb-3">
+        <div>
+          <label for="listing-price" class="form-label d-inline bg-white">Price</label>
+        </div>
+        <div class="input-group">
+          <span class="input-group-text">£</span>
+          <input type="text" name="price" class="form-control" id="listing-price" aria-label="Amount (to the nearest dollar)" value="<%= @space.price %>">
+        </div>
+        <div id="spaceprice" class="form-text d-inline bg-white">Please enter the nightly price.</div>
+      </div>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="listing-description" class=" form-label d-inline bg-white">Description</label>
+    <textarea type="text" class="form-control" rows="5" id="listing-description"
+      aria-describedby="spacedescription" name="description" ><%= @space.description %></textarea>
+    <div id="spacedescription" class="form-text d-inline bg-white ">Please enter a description for your space.</div>
+  </div>
+  <div class="mb-3">
+    <label for="image_url" class=" form-label d-inline bg-white">Image Link</label>
+    <input type="text" class="form-control" rows="5" id="image_url" aria-describedby="spacedescription"
+      name="url" value="<%= @space.url %>">
+    <div id="image_url_descrip" class="form-text d-inline bg-white ">Please enter a url for your space.</div>
+  </div>
+  <div class="px-4 mt-3 text-center" >
+    <input type="submit" class="btn btn-primary" name="submit" value="Update My Space"
+    id="button-update-my-space" style="margin-bottom: 50px;>
+  </div>
+  </div>
+  </div>
+</form>
+  
+  
