@@ -58,7 +58,7 @@ feature 'Viewing Requests' do
     click_link 'Requests'
     expect(page).to have_content("Requests I've received:")
     expect(page).to have_content("Space: TestSpace")
-    expect(page).to have_content("Renter: Bob")
+    expect(page).to have_content("Renter Name: Bob")
     expect(page).to have_content("Thu 18 Nov 2021")
   end
 
