@@ -13,8 +13,10 @@ feature 'Submitting a Booking Request' do
       user_id: host.id,
       url: 'https://dhcottages.co.uk/wp-content/uploads/2018/02/White-Sands-Pet-Friendly-Sea-View-Swanage-view-to-sea-1.jpg'
     )
-    DatabaseConnection.query("INSERT INTO bookings (start_date, end_date, booking_confirmed, user_id, space_id, host_id)
-      VALUES ('2021-11-18 15:44:02.776337', '2021-12-18 15:44:02.776337', false, #{user.id}, #{space.id}, #{host.id} );")
+    BookingCalendar.create(space_id: space.id, start_date:'2021-10-19', end_date:'2021-10-31')
+    
+    # DatabaseConnection.query("INSERT INTO bookings (start_date, end_date, booking_confirmed, user_id, space_id, host_id)
+    #   VALUES ('2021-11-18 15:44:02.776337', '2021-12-18 15:44:02.776337', false, #{user.id}, #{space.id}, #{host.id} );")
 
     visit '/'
     click_button 'Sign In'
@@ -23,10 +25,9 @@ feature 'Submitting a Booking Request' do
     click_button('Enter')
     click_link 'All Spaces'
     click_button("View")
-    click_button('book_request_button')
-    fill_in(:listing_fromdate, with: '2021-10-21')
-    fill_in(:listing_todate, with: '2021-10-28')
-    click_button('Submit')
+    click_button('2021-10-20')
     expect(page).to have_text("Requests", normalize_ws: true)
+    expect(page).to have_text("Space: TestSpace", normalize_ws: true)
+    expect(page).to have_text("Wed 20 Oct 2021", normalize_ws: true)
   end
 end
