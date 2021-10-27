@@ -21,7 +21,7 @@
 
 <div align="center" >
 
-## [Preview](https://github.com/arthurfincham/makers_bnb#preview)
+## [Preview](https://github.com/s-palmer/makers_bnb#preview)
 
 
 <img src="public/images/site_preview.gif" width="800px">
@@ -29,7 +29,7 @@
 
 &nbsp;
 
-## [Stack](https://github.com/arthurfincham/makers_bnb#stack)
+## [Stack](https://github.com/s-palmer/makers_bnb#stack)
 
 |                                                        | Tool                                                 | Use?                                       | Where can I see it?                                                  |
 |--------------------------------------------------------|------------------------------------------------------|--------------------------------------------|----------------------------------------------------------------------|
@@ -41,12 +41,12 @@
 
 </div>
 
-## [Usage](https://github.com/arthurfincham/makers_bnb#usage)
+## [Usage](https://github.com/s-palmer/makers_bnb#usage)
 
 ### Clone Repo
 
 ```
-$ git clone git@github.com:arthurfincham/makers_bnb.git
+$ git clone https://github.com/s-palmer/makers_bnb
 ```
 
 ### Install Bundler and Dependencies
@@ -83,10 +83,10 @@ $ rackup
 $ rake drop_dbs
 ```
 
-## [Specification](https://github.com/arthurfincham/makers_bnb#specification)
+## [Specification](https://github.com/s-palmer/makers_bnb#specification)
 
 
-#### [Stories](https://github.com/arthurfincham/makers_bnb#stories)
+#### [Stories](https://github.com/s-palmer/makers_bnb#stories)
 
 ```
 As a user,
@@ -139,7 +139,7 @@ If a booking request has not be accepted
 I am still available
 ```
 
-#### [Headlines](https://github.com/arthurfincham/makers_bnb#headlines)
+#### [Headlines](https://github.com/s-palmer/makers_bnb#headlines)
 
 - Any signed-up user can list a new space.
 - Users can list multiple spaces.
@@ -149,7 +149,7 @@ I am still available
 - Nights for which a space has already been booked should not be available for users to book that space.
 - Until a user has confirmed a booking request, that space can still be booked for that night.
 
-#### [Extras]((https://github.com/arthurfincham/makers_bnb#extras))
+#### [Extras]((https://github.com/s-palmer/makers_bnb#extras))
 
 - Users should receive an email whenever one of the following happens:
  - They sign up
@@ -167,7 +167,7 @@ I am still available
 - A ‘chat’ functionality once a space has been booked, allowing users whose space-booking request has been confirmed to chat with the user that owns that space
 - Basic payment implementation though Stripe.
 
-## [Team](https://github.com/arthurfincham/makers_bnb#team)
+## [Team](https://github.com/s-palmer/makers_bnb#team)
 
 * Max - [Github](https://github.com/maxcfry)
 * Arthur - [Github](https://github.com/arthurfincham)
