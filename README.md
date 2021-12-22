@@ -2,9 +2,9 @@
 
 <img src="public/images/logo_red.png" width="300px">
 
-![](https://img.shields.io/github/last-commit/arthurfincham/makers_bnb)
-![](https://img.shields.io/github/languages/count/arthurfincham/makers_bnb)
-![](https://img.shields.io/github/languages/code-size/arthurfincham/makers_bnb)
+![](https://img.shields.io/github/last-commit/s-palmer/makers_bnb)
+![](https://img.shields.io/github/languages/count/s-palmer/makers_bnb)
+![](https://img.shields.io/github/languages/code-size/s-palmer/makers_bnb)
 
 </div>
 
